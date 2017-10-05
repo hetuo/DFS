@@ -28,6 +28,7 @@ public class LoadInfoFromDisk {
 
     public void loadInfo(Path path){
         queue.execute(new ReadInfo(path));
+        shutdown();
     }
 
     private void writeInfoToMap(String filename, Chunk chunk){

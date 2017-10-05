@@ -20,12 +20,12 @@ public class StorageNode {
     private int nameNodePort = 8000;
     private Map<String, Map<Integer, Chunk>> chunkMap;
     private static final String DATA_PATH = "./data";
-    private Map<String, Integer> recentChanges;
+    private List<StorageMessages.Chunk> recentChanges;
 
 
     public StorageNode(String hostName, int port){
         chunkMap = new HashMap<String, Map<Integer, Chunk>>();
-        recentChanges = new HashMap<String, Integer>();
+        recentChanges = new ArrayList<>();
         this.port = port;
         this.hostName = hostName;
     }
@@ -35,15 +35,27 @@ public class StorageNode {
         loadInfoFromDisk.loadInfo(Paths.get(DATA_PATH));
     }
 
+    public void initialRecentChanges(){
+        if (chunkMap.isEmpty()){
+            System.out.println("StorageNode: Currently, this node have no chunk been stored");
+        }
+        for (Map.Entry<String, Map<Integer, Chunk>> entry : chunkMap.entrySet()){
+            String filename = entry.getKey();
+            for (Map.Entry<Integer, Chunk> chunkEntry : entry.getValue().entrySet()){
+                int chunkId = chunkEntry.getKey();
+                recentChanges.add(StorageMessages.Chunk.newBuilder()
+                                    .setFilename(filename)
+                                    .setChunkId(chunkId).build());
+            }
+        }
+    }
+
     public void HeartBeat(){
         Runnable task = new Runnable() {
             public void run(){
                 try{
                     synchronized (recentChanges){
-                        List<String> list = new ArrayList<>();
-                        for (Map.Entry<String, Integer> entry : recentChanges.entrySet()){
-                            list.add(entry.getKey() + "-" + entry.getValue());
-                        }
+                        List<StorageMessages.Chunk> list = new ArrayList<>(recentChanges);
                         Socket client = new Socket(nameNodeAddr, nameNodePort);
                         StorageMessages.HeartBeat.Builder messageBuilder = StorageMessages.HeartBeat.newBuilder();
                         messageBuilder.addAllUpdateInfo(list);
@@ -65,18 +77,19 @@ public class StorageNode {
         };
 
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-        service.scheduleAtFixedRate(task, 2, 5, TimeUnit.SECONDS);
+        service.scheduleAtFixedRate(task, 1, 5, TimeUnit.SECONDS);
     }
 
     private ServerSocket srvSocket;
 
     public static void main(String[] args) throws Exception {
-        //if (args.length != 2)
-        //    return;
-        //StorageNode node = new StorageNode(getHostname(), Integer.valueOf(args[1]));
-        StorageNode node = new StorageNode(getHostname(), 3000);
+        if (args.length != 2)
+            return;
+        StorageNode node = new StorageNode(getHostname(), Integer.valueOf(args[1]));
+        //StorageNode node = new StorageNode(getHostname(), 3000);
         System.out.println("StorageNode " + node.hostName + "initial chunk map");
         node.initialChunkMap();
+        node.initialRecentChanges();
         System.out.println("StorageNode " + node.hostName + "start send HeatBeat");
         node.HeartBeat();
         StorageNodeWorker worker = new StorageNodeWorker(node.hostName, node.recentChanges);
@@ -85,30 +98,7 @@ public class StorageNode {
         Thread thread = new Thread(server);
         thread.start();
         thread.join();
-
-        //String hostname = getHostname();
-        //System.out.println("Starting storage node on " + hostname + "...");
-        //new StorageNode().start();
     }
-
-    /*public void start()
-            throws Exception {
-        srvSocket = new ServerSocket(9999);
-        System.out.println("Listening...");
-        while (true) {
-            Socket socket = srvSocket.accept();
-            StorageMessages.StorageMessageWrapper msgWrapper
-                    = StorageMessages.StorageMessageWrapper.parseDelimitedFrom(
-                    socket.getInputStream());
-
-            if (msgWrapper.hasStoreChunkMsg()) {
-                StorageMessages.StoreChunk storeChunkMsg
-                        = msgWrapper.getStoreChunkMsg();
-                System.out.println("Storing file name: "
-                        + storeChunkMsg.getFileName());
-            }
-        }
-    }*/
 
     /**
      * Retrieves the short host name of the current host.

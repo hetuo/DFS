@@ -1,6 +1,7 @@
 package edu.usfca.cs.dfs.controller;
 
 import edu.usfca.cs.dfs.network.Server;
+import edu.usfca.cs.dfs.utilities.StorageMessages;
 
 import java.util.*;
 
@@ -15,13 +16,14 @@ public class Controller {
     public Map<String, List<List<String>>> mapOfFile;
     public final static int PORT = 8000;
     public final static String HOSTNAME = "localhost";
-    public Map<String, Map<Integer, List<StorageNodeInfo>>> mapOfChunkInfo;
-    public Map<String, StorageNodeInfo> mapOfStorageNode;
+    public Map<String, Map<Integer, List<StorageMessages.Node>>> mapOfChunkInfo;
+    //public Map<String, StorageNodeInfo> mapOfStorageNode;
+    public List<StorageNodeInfo> listOfStorageNode;
 
     public Controller(){
-        mapOfChunkInfo = new HashMap<String, Map<Integer, List<StorageNodeInfo>>>();
-        mapOfStorageNode = new HashMap<String, StorageNodeInfo>();
-
+        mapOfChunkInfo = new HashMap<String, Map<Integer, List<StorageMessages.Node>>>();
+        //mapOfStorageNode = new HashMap<String, StorageNodeInfo>();
+        listOfStorageNode = new LinkedList<>();
     }
 
 
@@ -45,7 +47,7 @@ public class Controller {
 
     public static void main(String[] args) throws Exception{
         Controller controller = new Controller();
-        ControllerWorker worker = new ControllerWorker(HOSTNAME, controller.mapOfChunkInfo, controller.mapOfStorageNode);
+        ControllerWorker worker = new ControllerWorker(HOSTNAME, controller.mapOfChunkInfo, controller.listOfStorageNode);
         Server server = new Server(controller.HOSTNAME, controller.PORT, worker);
         System.out.println("Controller " + controller.HOSTNAME + "start listen socket connection");
         Thread thread = new Thread(server);

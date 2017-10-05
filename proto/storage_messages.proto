@@ -6,13 +6,49 @@ message StoreChunk {
     int32 chunkId = 2;
     bytes data = 3;
     string md5 = 4;
+    NodeList list = 5;
 }
 
-message RetrieveFile {
-    string fileName = 1;
+message RetrieveChunk {
+    string filename = 1;
+    int32 chunkId = 2;
+}
+
+message RetrieveChunkResponse {
+    string filename = 1;
     int32 chunkId = 2;
     bytes data = 3;
-    string md5 = 4;
+}
+
+message StoreFileMeta {
+    string fileName = 1;
+    int32 numOfChunks = 2;
+}
+
+message RetrieveFileMeta {
+    string fileName = 1;
+}
+
+message RetrieveFileMetaResponse{
+    repeated RetrieveNode nodes = 1;
+}
+
+message RetrieveNode{
+    int32 chunkId = 1;
+    Node node = 2;
+}
+
+message Node {
+    string hostname = 1;
+    int32 port = 2;
+}
+
+message NodeList {
+    repeated Node list = 1;
+}
+
+message StoreFileMetaResponse {
+    repeated Node nodeList = 1;
 }
 
 message StoreChunkResponse {
@@ -21,17 +57,37 @@ message StoreChunkResponse {
     repeated string nodeList = 3;
 }
 
+message Chunk {
+    string filename = 1;
+    int32 chunkId = 2;
+}
+
 message HeartBeat {
     string hostName = 1;
     int32 port = 2;
-    repeated string updateInfo = 3;
+    repeated Chunk updateInfo = 3;
+}
+
+message CheckChunk {
+    Chunk chunkInfo = 1;
+}
+
+message CheckChunkResponse {
+    bool nodeOn = 1;
 }
 
 message StorageMessageWrapper {
     oneof msg {
         StoreChunk storeChunkMsg = 1;
-        RetrieveFile retrieveFileMsg = 2;
+        RetrieveFileMeta retrieveFileMetaMsg = 2;
         HeartBeat heartBeatMsg = 3;
         StoreChunkResponse storeChunkResponseMSg = 4;
+        StoreFileMeta storeFileMetaMsg = 5;
+        StoreFileMetaResponse storeFileMetaResponseMsg = 6;
+        RetrieveFileMetaResponse retrieveFileMetaResponseMsg = 7;
+        RetrieveChunk retrieveChunkMsg = 8;
+        RetrieveChunkResponse retrieveChunkResponseMsg = 9;
+        CheckChunk checkChunkMsg = 10;
+        CheckChunkResponse checkChunkResponseMsg = 11;
     }
 }

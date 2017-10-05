@@ -1,5 +1,7 @@
 package edu.usfca.cs.dfs.client;
 
+import edu.usfca.cs.dfs.concurrent.WorkQueue;
+import org.apache.commons.codec.digest.DigestUtils;
 import com.google.protobuf.ByteString;
 import edu.usfca.cs.dfs.utilities.GetMD5ForFile;
 import edu.usfca.cs.dfs.utilities.StorageMessages;
@@ -13,13 +15,21 @@ import java.util.*;
 
 public class Client {
 
-    public static final int BUFFER_SIZE = 4;
+    public static final int BUFFER_SIZE = 1024 * 1024;
     private Map<String, FileInfo> fileInfoMap;
     private Socket clientForController;
+    private String filename;
+    private int numOfChunks;
+    private List<StorageMessages.StoreChunk> chunkList;
+    private LinkedList<List<String>> storageNodeList;
+    private WorkQueue workQueue = new WorkQueue(10);
 
-    public Client(){
+    public Client(String filename){
         try {
-            clientForController = new Socket("localhost", 8000);
+            //clientForController = new Socket("localhost", 8000);
+            this.filename = filename;
+            chunkList = new LinkedList<>();
+            storageNodeList = new LinkedList<>();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -84,26 +94,34 @@ public class Client {
 
     }
 
-    private List<StorageMessages.StoreChunk> createChunks(String filename){
+    /**
+     * Split the file to create the chunk list before we send store request to Controller.
+     * Update variable numOfChunks and chunkList. Send numOfChunks to Controller to get the
+     * StorageNode list. Send the chunks in the Queue chunkList to those nodes by Thread Pool
+     */
+    private void createChunks(String filename){
         if (filename == null || filename.length() == 0){
             System.out.println("createChunks: Invalid filename");
-            return null;
+            return ;
         }
-        List<StorageMessages.StoreChunk> chunkList = new ArrayList<>();
+        //List<StorageMessages.StoreChunk> chunkList = new ArrayList<>();
         InputStream is = null;
         try{
             byte[] buffer = new byte[BUFFER_SIZE];
             is = new FileInputStream(filename);
             for (int i = 0; is.read(buffer) != -1; i++){
+                String md5 = DigestUtils.md5Hex(buffer);
                 ByteString data = ByteString.copyFrom(buffer);
                 StorageMessages.StoreChunk storeChunkMsg
                         = StorageMessages.StoreChunk.newBuilder()
                         .setFileName(filename)
                         .setChunkId(i)
+                        .setMd5(md5)
                         .setData(data)
                         .build();
                 chunkList.add(storeChunkMsg);
             }
+            this.numOfChunks = chunkList.size();
         } catch(Exception io){
             io.printStackTrace();
         } finally {
@@ -114,30 +132,13 @@ public class Client {
                 io.printStackTrace();
             }
         }
-        return chunkList;
     }
-
-    public void storeFile(String filename, Socket socket){
-        if (filename == null || filename.length() == 0){
-            System.out.println("storeFile: invalid filename");
-            return;
-        }
-        recordFileInfo(filename);
-        List<StorageMessages.StoreChunk> chunks = createChunks(filename);
-        createFileByChunks(chunks, filename);
-    }
-
-    public void retrieveFile(String filename, Socket socket){
-
-    }
-
-
 
 
 
     public static void main(String[] args) throws Exception {
 
-        Client client = new Client();
+        //Client client = new Client();
 //        Socket socket = new Socket("localhost", 9999);
         Socket socket = null;
         /*if (args.length != 3 || args[2] == ""){
@@ -152,34 +153,13 @@ public class Client {
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
         }*/
-
-
-        System.out.println(System.getProperty("user.dir"));
-        socket = new Socket("localhost", 8000);
-        ByteString data = ByteString.copyFromUtf8("Hello World!");
-        StorageMessages.StoreChunk storeChunkMsg
-                = StorageMessages.StoreChunk.newBuilder()
-                .setFileName("my_file.txt")
-                .setChunkId(3)
-                .setData(data)
-                .build();
-        storeChunkMsg.toByteArray();
-        StorageMessages.StorageMessageWrapper msgWrapper =
-                StorageMessages.StorageMessageWrapper.newBuilder()
-                        .setStoreChunkMsg(storeChunkMsg)
-                        .build();
-
-        msgWrapper.writeDelimitedTo(socket.getOutputStream());
-        System.out.println("Client: already get the input stream");
-        msgWrapper = StorageMessages.StorageMessageWrapper.parseDelimitedFrom(
-                socket.getInputStream());
-        if (msgWrapper.hasStoreChunkResponseMSg()){
-            StorageMessages.StoreChunkResponse message = msgWrapper.getStoreChunkResponseMSg();
-            List<String> list = message.getNodeListList();
-            for (String str : list)
-                System.out.println("Client: " + str);
-        }
-        socket.close();
+        StoreFile test = new StoreFile();
+        test.storeFile("test.zip");
+        System.out.println("Client: going to retrieve file");
+        Thread.sleep(5000);
+        RetrieveFile retrieve = new RetrieveFile("test.zip");
+        retrieve.retrieveFile("test.zip");
+        System.out.println("Client: done");
     }
 
 }

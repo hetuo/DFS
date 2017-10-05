@@ -1,5 +1,7 @@
 package edu.usfca.cs.dfs.network;
 
+import edu.usfca.cs.dfs.controller.ControllerWorker;
+import edu.usfca.cs.dfs.storageNode.StorageNodeWorker;
 import edu.usfca.cs.dfs.utilities.Worker;
 
 import java.net.InetAddress;
@@ -33,11 +35,25 @@ public class Server implements Runnable{
         while (true){
             try{
                 socket = serverSocket.accept();
+                System.out.println("Server: " + worker.getClass().getName());
+                if (worker.getClass().getName().contains("ControllerWorker")) {
+                    ControllerWorker newWorker = new ControllerWorker((ControllerWorker)worker);
+                    newWorker.setSocket(socket);
+                    new Thread(newWorker).start();
+                }
+                else if (worker.getClass().getName().contains("StorageNodeWorker")){
+                    StorageNodeWorker newWorker = new StorageNodeWorker((StorageNodeWorker)worker);
+                    newWorker.setSocket(socket);
+                    new Thread(newWorker).start();
+                }
+                else{
+                    System.out.println("Server: invalid worker class");
+                    socket.close();
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }
-            worker.setSocket(socket);
-            new Thread(worker).start();
+
         }
 
     }

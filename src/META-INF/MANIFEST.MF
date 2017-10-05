@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: edu.usfca.cs.dfs.Client.Client
+Main-Class: edu.usfca.cs.dfs.storageNode.StorageNode
 
