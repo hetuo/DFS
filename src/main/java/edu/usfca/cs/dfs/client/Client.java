@@ -156,7 +156,7 @@ public class Client {
         //StoreFile test = new StoreFile();
         //test.storeFile("test.zip");
         //System.out.println("Client: going to retrieve file");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         RetrieveFile retrieve = new RetrieveFile("test.zip");
         retrieve.retrieveFile("test.zip");
         System.out.println("Client: done");

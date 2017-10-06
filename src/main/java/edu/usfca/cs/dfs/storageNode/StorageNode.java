@@ -5,7 +5,10 @@ import edu.usfca.cs.dfs.utilities.StorageMessages;
 import edu.usfca.cs.dfs.network.Server;
 import edu.usfca.cs.dfs.utilities.Chunk;
 
+import java.io.File;
 import java.net.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.Executors;
@@ -19,7 +22,7 @@ public class StorageNode {
     private String nameNodeAddr = "localhost";
     private int nameNodePort = 8000;
     private Map<String, Map<Integer, Chunk>> chunkMap;
-    private static final String DATA_PATH = "./data";
+    private static String DATA_PATH;
     private List<StorageMessages.Chunk> recentChanges;
 
 
@@ -28,11 +31,17 @@ public class StorageNode {
         recentChanges = new ArrayList<>();
         this.port = port;
         this.hostName = hostName;
+        DATA_PATH = "./data" + port + "/";
     }
 
     public void initialChunkMap(){
         LoadInfoFromDisk loadInfoFromDisk = new LoadInfoFromDisk(chunkMap);
         loadInfoFromDisk.loadInfo(Paths.get(DATA_PATH));
+    }
+
+    public void clearDisk(){
+        ClearDisk clear = new ClearDisk();
+        clear.deleteDirectory(Paths.get(DATA_PATH));
     }
 
     public void initialRecentChanges(){
@@ -80,8 +89,6 @@ public class StorageNode {
         service.scheduleAtFixedRate(task, 1, 5, TimeUnit.SECONDS);
     }
 
-    private ServerSocket srvSocket;
-
     public static void main(String[] args) throws Exception {
         //if (args.length != 1)
         //    return;
@@ -91,8 +98,9 @@ public class StorageNode {
         int port = sc.nextInt();
         StorageNode node = new StorageNode(getHostname(), port);
         System.out.println("StorageNode " + node.hostName + "initial chunk map");
-        node.initialChunkMap();
-        node.initialRecentChanges();
+        //node.initialChunkMap();
+        //node.initialRecentChanges();
+        node.clearDisk();
         System.out.println("StorageNode " + node.hostName + "start send HeatBeat");
         node.HeartBeat();
         StorageNodeWorker worker = new StorageNodeWorker(node.hostName, node.recentChanges, port);
