@@ -144,10 +144,15 @@ public class ControllerWorker extends Worker{
         }
     }
 
-    private boolean checkNode(StorageMessages.Node node, List<StorageMessages.Node> failedNodes){
+    private void recoverChunk(StorageMessages.Node node, List<StorageMessages.Node> failedNodes, int id){
         Socket client = null;
         try{
-
+            StorageMessages.RecoveryChunk message = StorageMessages.RecoveryChunk.newBuilder()
+                    .setChunkId(id).setFilename(filename).addAllNodeList(failedNodes).build();
+            StorageMessages.StorageMessageWrapper msgWrapper = StorageMessages.StorageMessageWrapper
+                    .newBuilder().setRecoveryChunkMsg(message).build();
+            client = new Socket(node.getHostname(), node.getPort());
+            msgWrapper.writeDelimitedTo(client.getOutputStream());
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -157,6 +162,37 @@ public class ControllerWorker extends Worker{
             }catch (Exception e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    private boolean checkNode(StorageMessages.Node node, List<StorageMessages.Node> failedNodes, int id){
+        Socket client = null;
+        boolean result = false;
+        try{
+            StorageMessages.Chunk chunk = StorageMessages.Chunk.newBuilder().setChunkId(id).setFilename(filename).build();
+            StorageMessages.CheckChunk message = StorageMessages.CheckChunk.newBuilder().setChunkInfo(chunk).build();
+            StorageMessages.StorageMessageWrapper msgWrapper = StorageMessages.StorageMessageWrapper.newBuilder()
+                    .setCheckChunkMsg(message).build();
+            client = new Socket(node.getHostname(), node.getPort());
+            msgWrapper.writeDelimitedTo(client.getOutputStream());
+            StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.StorageMessageWrapper.parseDelimitedFrom(
+                    client.getInputStream());
+            if (resWrapper.hasCheckChunkResponseMsg()){
+                result = resWrapper.getCheckChunkResponseMsg().getNodeOn();
+                System.out.println("ControllerWorker: the result of check chunk " + id + " is " + result);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if (client != null)
+                    client.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            if (!result)
+                failedNodes.add(node);
+            return result;
         }
     }
 
@@ -174,14 +210,16 @@ public class ControllerWorker extends Worker{
                     List<StorageMessages.Node> nodes = map.get(i);
                     if (!nodes.isEmpty()){
                         List<StorageMessages.Node> failedNodes = new LinkedList<>();
+                        StorageMessages.Node node = null;
                         for (int index = 0; index < nodes.size(); index++){
-
+                            node = nodes.get(index);
+                            if (checkNode(node, failedNodes, i))
+                                break;
                         }
-                        StorageMessages.Node node = nodes.get(0);
-                        list.add(StorageMessages.RetrieveNode.newBuilder()
-                        .setChunkId(i)
-                        .setNode(node)
-                        .build());
+                        if (node != null)
+                            list.add(StorageMessages.RetrieveNode.newBuilder().setChunkId(i).setNode(node).build());
+                        if (!failedNodes.isEmpty() && node != null)
+                            recoverChunk(node, failedNodes, i);
                     }
                 }
                 return list;

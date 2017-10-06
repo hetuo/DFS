@@ -76,6 +76,12 @@ message CheckChunkResponse {
     bool nodeOn = 1;
 }
 
+message RecoveryChunk{
+    string filename = 1;
+    int32 chunkId = 2;
+    repeated Node nodeList = 3;
+}
+
 message StorageMessageWrapper {
     oneof msg {
         StoreChunk storeChunkMsg = 1;
@@ -89,5 +95,6 @@ message StorageMessageWrapper {
         RetrieveChunkResponse retrieveChunkResponseMsg = 9;
         CheckChunk checkChunkMsg = 10;
         CheckChunkResponse checkChunkResponseMsg = 11;
+        RecoveryChunk recoveryChunkMsg = 12;
     }
 }

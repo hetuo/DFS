@@ -83,16 +83,19 @@ public class StorageNode {
     private ServerSocket srvSocket;
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 2)
-            return;
-        StorageNode node = new StorageNode(getHostname(), Integer.valueOf(args[1]));
-        //StorageNode node = new StorageNode(getHostname(), 3000);
+        //if (args.length != 1)
+        //    return;
+        //StorageNode node = new StorageNode(getHostname(), Integer.valueOf(args[0]));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the port number: ");
+        int port = sc.nextInt();
+        StorageNode node = new StorageNode(getHostname(), port);
         System.out.println("StorageNode " + node.hostName + "initial chunk map");
         node.initialChunkMap();
         node.initialRecentChanges();
         System.out.println("StorageNode " + node.hostName + "start send HeatBeat");
         node.HeartBeat();
-        StorageNodeWorker worker = new StorageNodeWorker(node.hostName, node.recentChanges);
+        StorageNodeWorker worker = new StorageNodeWorker(node.hostName, node.recentChanges, port);
         Server server = new Server(node.hostName, node.port, worker);
         System.out.println("StorageNode " + node.hostName + "start listen socket connection");
         Thread thread = new Thread(server);

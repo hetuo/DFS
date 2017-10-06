@@ -26,15 +26,18 @@ public class StorageNodeWorker extends Worker{
 
     public List<StorageMessages.Chunk> recentChanges;
     private LinkedList<StorageMessages.Node> nodeList;
+    private int port;
 
-    public StorageNodeWorker(String hostName, List<StorageMessages.Chunk> recentChanges){
+    public StorageNodeWorker(String hostName, List<StorageMessages.Chunk> recentChanges, int port){
         super(hostName);
         this.recentChanges = recentChanges;
+        this.port = port;
     }
 
     public StorageNodeWorker(StorageNodeWorker worker){
         super(worker.hostName);
         this.recentChanges = worker.recentChanges;
+        this.port = worker.port;
     }
 
     @Override
@@ -48,8 +51,21 @@ public class StorageNodeWorker extends Worker{
         data = chunk.getData().toByteArray();
     }
 
+    public void getCheckChunkMsg(StorageMessages.StorageMessageWrapper msgWrapper){
+        StorageMessages.CheckChunk message = msgWrapper.getCheckChunkMsg();
+        this.filename = message.getChunkInfo().getFilename();
+        this.chunkId = message.getChunkInfo().getChunkId();
+    }
+
+    public void getRecoveryChunkMsg(StorageMessages.StorageMessageWrapper msgWrapper){
+        StorageMessages.RecoveryChunk message = msgWrapper.getRecoveryChunkMsg();
+        this.filename = message.getFilename();
+        this.chunkId = message.getChunkId();
+        this.nodeList = new LinkedList<>(message.getNodeListList());
+    }
+
     public void storeChunk() throws Exception{
-        String path = "./data/" + this.filename + "/" + this.md5 + "-" + this.chunkId;
+        String path = "./data"+port+"/" + this.filename + "/" + this.md5 + "-" + this.chunkId;
         File f = new File(path);
         f.getParentFile().mkdirs();
         f.createNewFile();
@@ -104,25 +120,28 @@ public class StorageNodeWorker extends Worker{
         this.chunkId = chunk.getChunkId();
     }
 
-    public StorageMessages.RetrieveChunkResponse retrieveChunk(){
+    public byte[] readAndCheckChunk(){
         FileInputStream is = null;
-        StorageMessages.RetrieveChunkResponse response = null;
+        byte[] data = null;
         try{
-            for (Path path : Files.newDirectoryStream(Paths.get("./data/" + filename))){
+            for (Path path : Files.newDirectoryStream(Paths.get("./data"+port+"/" + filename))){
                 if (path.toString().endsWith("-" + chunkId)){
                     String[] strings = path.toString().split("/");
                     String md5sum = strings[strings.length - 1].substring(0, 32);
                     is = new FileInputStream(path.toString());
-                    byte[] data = new byte[(int)(new File(path.toString()).length())];
+                    data = new byte[(int)(new File(path.toString()).length())];
                     is.read(data);
                     System.out.println("StorageNodeWorker: " + DigestUtils.md5Hex(data) + ":" + md5sum);
-                    if (md5sum.equals(DigestUtils.md5Hex(data))){
+                    if (!md5sum.equals(DigestUtils.md5Hex(data))){
+                        data = null;
+                        //need to delete this broken chunk;
+                        Files.delete(path);
+                    }else{
                         System.out.println("StorageNodeWorker: get the right file");
-                        response = StorageMessages.RetrieveChunkResponse.newBuilder()
-                                .setChunkId(chunkId).setFilename(filename)
-                                .setData(ByteString.copyFrom(data)).build();
-                        return response;
+                        this.md5 = new String(md5sum);
+                        this.data = data;
                     }
+                    break;
                 }
             }
         }catch (Exception e){
@@ -134,8 +153,21 @@ public class StorageNodeWorker extends Worker{
             }catch (Exception e){
                 e.printStackTrace();
             }
-            return response;
+            return data;
         }
+    }
+
+    public StorageMessages.RetrieveChunkResponse retrieveChunk(){
+        StorageMessages.RetrieveChunkResponse response = null;
+        byte[] data = readAndCheckChunk();
+        System.out.println("StorageNodeWorker: data is null?");
+        if (data != null){
+            System.out.println("StorageNodeWorker: no");
+            response = StorageMessages.RetrieveChunkResponse.newBuilder()
+                    .setChunkId(chunkId).setFilename(filename)
+                    .setData(ByteString.copyFrom(data)).build();
+        }
+        return response;
     }
 
     @Override
@@ -158,6 +190,27 @@ public class StorageNodeWorker extends Worker{
                 StorageMessages.RetrieveChunkResponse response = retrieveChunk();
                 StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.StorageMessageWrapper
                         .newBuilder().setRetrieveChunkResponseMsg(response).build();
+                resWrapper.writeDelimitedTo(socket.getOutputStream());
+            }
+            if (msgWrapper.hasRecoveryChunkMsg()){
+                getRecoveryChunkMsg(msgWrapper);
+                readAndCheckChunk();
+                if (nodeList != null && nodeList.size() != 0) {
+                    System.out.println("StorageNodeWorker: going to send data to another node");
+                    sendChunkToAnotherNode();
+                }
+            }
+            if (msgWrapper.hasCheckChunkMsg()){
+                getCheckChunkMsg(msgWrapper);
+                byte[] data = readAndCheckChunk();
+                System.out.println("StorageNodeWoker: going to send response to Controller for chunk checking");
+                StorageMessages.CheckChunkResponse response = null;
+                if (data == null)
+                    response = StorageMessages.CheckChunkResponse.newBuilder().setNodeOn(false).build();
+                else
+                    response = StorageMessages.CheckChunkResponse.newBuilder().setNodeOn(true).build();
+                StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.StorageMessageWrapper
+                        .newBuilder().setCheckChunkResponseMsg(response).build();
                 resWrapper.writeDelimitedTo(socket.getOutputStream());
             }
             socket.close();
