@@ -3,6 +3,7 @@ package edu.usfca.cs.dfs.storageNode;
 import edu.usfca.cs.dfs.concurrent.ReentrantReadWriteLock;
 import edu.usfca.cs.dfs.concurrent.WorkQueue;
 import edu.usfca.cs.dfs.utilities.Chunk;
+import edu.usfca.cs.dfs.utilities.StorageMessages;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,11 +19,11 @@ public class LoadInfoFromDisk {
 
     private WorkQueue queue = new WorkQueue();
     private volatile int numTasks = 0;
-    private Map<String, Map<Integer, Chunk>> chunkMap;
+    private List<StorageMessages.Chunk> chunkList;
     private ReentrantReadWriteLock lock;
 
-    public LoadInfoFromDisk(Map<String, Map<Integer, Chunk>> chunkMap){
-        this.chunkMap = chunkMap;
+    public LoadInfoFromDisk(List<StorageMessages.Chunk> chunkList){
+        this.chunkList = chunkList;
         lock = new ReentrantReadWriteLock();
     }
 
@@ -31,23 +32,16 @@ public class LoadInfoFromDisk {
         shutdown();
     }
 
-    private void writeInfoToMap(String filename, Chunk chunk){
+    private void writeInfoToList(StorageMessages.Chunk chunk){
         lock.lockWrite();
         try{
-            if (chunkMap.containsKey(filename)){
-                Map<Integer, Chunk> map = chunkMap.get(filename);
-                map.put(chunk.getId(), chunk);
-            } else{
-                Map<Integer, Chunk> map = new HashMap<>();
-                map.put(chunk.getId(), chunk);
-                chunkMap.put(filename, map);
-            }
+            chunkList.add(chunk);
         }finally {
             lock.unlockWrite();
         }
     }
 
-    private Chunk createChunk(String path){
+    private StorageMessages.Chunk createChunk(String path){
         if (path == null || path.length() == 0){
             System.out.println("createChunk: invalid path name");
             return null;
@@ -56,7 +50,9 @@ public class LoadInfoFromDisk {
         String[] strings = path.split("/");
         String filename = strings[strings.length - 2];
         String[] infos = strings[strings.length - 1].split("-");
-        Chunk chunk = new Chunk(filename, infos[0], Integer.valueOf(infos[1]));
+        int chunkId = Integer.valueOf(infos[infos.length - 1]);
+        StorageMessages.Chunk chunk = StorageMessages.Chunk.newBuilder().setFilename(filename).setChunkId(chunkId)
+                .build();
         return chunk;
     }
 
@@ -74,8 +70,8 @@ public class LoadInfoFromDisk {
                     if (Files.isDirectory(path)) {
                         queue.execute(new ReadInfo(path)); // add new DirectoryWorker to the work queue
                     } else {
-                        Chunk chunk = createChunk(path.toString());
-                        writeInfoToMap(chunk.getFilename(), chunk);
+                        StorageMessages.Chunk chunk = createChunk(path.toString());
+                        writeInfoToList(chunk);
                     }
                 }
             } catch (IOException e) {

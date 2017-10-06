@@ -35,7 +35,7 @@ public class Server implements Runnable{
         while (true){
             try{
                 socket = serverSocket.accept();
-                System.out.println("Server: " + worker.getClass().getName());
+                //System.out.println("Server: " + worker.getClass().getName());
                 if (worker.getClass().getName().contains("ControllerWorker")) {
                     ControllerWorker newWorker = new ControllerWorker((ControllerWorker)worker);
                     newWorker.setSocket(socket);

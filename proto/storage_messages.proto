@@ -82,6 +82,16 @@ message RecoveryChunk{
     repeated Node nodeList = 3;
 }
 
+message GetAllData {
+    int32 test = 1;
+}
+
+message GetAllDataResponse {
+    string hostName = 1;
+    int32 port = 2;
+    repeated Chunk updateInfo = 3;
+}
+
 message StorageMessageWrapper {
     oneof msg {
         StoreChunk storeChunkMsg = 1;
@@ -96,5 +106,7 @@ message StorageMessageWrapper {
         CheckChunk checkChunkMsg = 10;
         CheckChunkResponse checkChunkResponseMsg = 11;
         RecoveryChunk recoveryChunkMsg = 12;
+        GetAllData getAllDataMsg = 13;
+        GetAllDataResponse getAllDataResponseMsg = 14;
     }
 }

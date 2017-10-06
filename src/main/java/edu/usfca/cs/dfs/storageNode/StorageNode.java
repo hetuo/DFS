@@ -22,7 +22,7 @@ public class StorageNode {
     private String nameNodeAddr = "localhost";
     private int nameNodePort = 8000;
     private Map<String, Map<Integer, Chunk>> chunkMap;
-    private static String DATA_PATH;
+    public static String DATA_PATH;
     private List<StorageMessages.Chunk> recentChanges;
 
 
@@ -34,29 +34,9 @@ public class StorageNode {
         DATA_PATH = "./data" + port + "/";
     }
 
-    public void initialChunkMap(){
-        LoadInfoFromDisk loadInfoFromDisk = new LoadInfoFromDisk(chunkMap);
-        loadInfoFromDisk.loadInfo(Paths.get(DATA_PATH));
-    }
-
     public void clearDisk(){
         ClearDisk clear = new ClearDisk();
         clear.deleteDirectory(Paths.get(DATA_PATH));
-    }
-
-    public void initialRecentChanges(){
-        if (chunkMap.isEmpty()){
-            System.out.println("StorageNode: Currently, this node have no chunk been stored");
-        }
-        for (Map.Entry<String, Map<Integer, Chunk>> entry : chunkMap.entrySet()){
-            String filename = entry.getKey();
-            for (Map.Entry<Integer, Chunk> chunkEntry : entry.getValue().entrySet()){
-                int chunkId = chunkEntry.getKey();
-                recentChanges.add(StorageMessages.Chunk.newBuilder()
-                                    .setFilename(filename)
-                                    .setChunkId(chunkId).build());
-            }
-        }
     }
 
     public void HeartBeat(){

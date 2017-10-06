@@ -4,6 +4,7 @@ import edu.usfca.cs.dfs.concurrent.ReentrantReadWriteLock;
 import edu.usfca.cs.dfs.concurrent.WorkQueue;
 import edu.usfca.cs.dfs.utilities.Chunk;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,9 +19,12 @@ public class ClearDisk {
     private volatile int numTasks = 0;
 
     public void deleteDirectory(Path path){
-        queue.execute(new Delete(path));
-        shutdown();
         try {
+            File f = new File(path.toString());
+            if (!f.exists())
+                return;
+            queue.execute(new Delete(path));
+            shutdown();
             for (Path folder : Files.newDirectoryStream(path))
                 Files.deleteIfExists(folder);
             Files.deleteIfExists(path);

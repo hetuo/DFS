@@ -1,6 +1,7 @@
 package edu.usfca.cs.dfs.storageNode;
 
 import com.google.protobuf.ByteString;
+import edu.usfca.cs.dfs.utilities.Chunk;
 import edu.usfca.cs.dfs.utilities.StorageMessages;
 import edu.usfca.cs.dfs.network.NioServer;
 import edu.usfca.cs.dfs.utilities.Worker;
@@ -170,6 +171,17 @@ public class StorageNodeWorker extends Worker{
         return response;
     }
 
+
+    public List<StorageMessages.Chunk> getAllData(){
+        List<StorageMessages.Chunk> list = new LinkedList<>();
+        File f = new File(StorageNode.DATA_PATH);
+        if (!f.exists())
+            return list;
+        LoadInfoFromDisk loader = new LoadInfoFromDisk(list);
+        loader.loadInfo(Paths.get(StorageNode.DATA_PATH));
+        return list;
+    }
+
     @Override
     public void run(){
         try{
@@ -184,6 +196,15 @@ public class StorageNodeWorker extends Worker{
                     System.out.println("StorageNodeWorker: going to send data to another node");
                     sendChunkToAnotherNode();
                 }
+            }
+            if (msgWrapper.hasGetAllDataMsg()){
+                List<StorageMessages.Chunk> list = getAllData();
+                StorageMessages.GetAllDataResponse response = StorageMessages.GetAllDataResponse.newBuilder()
+                        .setHostName(this.hostName).setPort(this.port).addAllUpdateInfo(list).build();
+                StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.StorageMessageWrapper
+                        .newBuilder().setGetAllDataResponseMsg(response).build();
+                resWrapper.writeDelimitedTo(socket.getOutputStream());
+
             }
             if (msgWrapper.hasRetrieveChunkMsg()){
                 getRetrieveChunkMsg(msgWrapper);

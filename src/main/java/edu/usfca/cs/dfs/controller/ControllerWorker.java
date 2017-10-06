@@ -16,20 +16,23 @@ import java.util.*;
 public class ControllerWorker extends Worker{
 
     public Map<String, Map<Integer, List<StorageMessages.Node>>> mapOfChunkInfo;
-    //public Map<String, StorageNodeInfo> mapOfStorageNode;
+    public Map<String, Map<String, List<Integer>>> detailOfStorageNode;
     public List<StorageNodeInfo> listOfStorageNode;
 
     public ControllerWorker(ControllerWorker worker){
         super(worker.hostName);
         this.mapOfChunkInfo = worker.mapOfChunkInfo;
         this.listOfStorageNode = worker.listOfStorageNode;
+        this.detailOfStorageNode = worker.detailOfStorageNode;
     }
 
     public ControllerWorker(String hostName, Map<String, Map<Integer, List<StorageMessages.Node>>> mapOfChunkInfo
-                                                , List<StorageNodeInfo> listOfStorageNode){
+                                                , List<StorageNodeInfo> listOfStorageNode
+                                                , Map<String, Map<String, List<Integer>>> detailOfStorageNode){
         super(hostName);
         this.mapOfChunkInfo = mapOfChunkInfo;
         this.listOfStorageNode = listOfStorageNode;
+        this.detailOfStorageNode = detailOfStorageNode;
     }
 
     private List<StorageMessages.Node> createOrUpdate(){
@@ -47,13 +50,15 @@ public class ControllerWorker extends Worker{
     }
 
     private void updateMapOfChunkInfo(List<StorageMessages.Node> list){
-        if (!mapOfChunkInfo.containsKey(filename))
-            mapOfChunkInfo.put(filename, new HashMap<Integer, List<StorageMessages.Node>>());
-        Map<Integer, List<StorageMessages.Node>> map = mapOfChunkInfo.get(filename);
-        if (!map.containsKey(chunkId))
-            map.put(chunkId, new ArrayList<StorageMessages.Node>(list));
-        else
-            map.put(chunkId, list);
+        synchronized (mapOfChunkInfo){
+            if (!mapOfChunkInfo.containsKey(filename))
+                mapOfChunkInfo.put(filename, new HashMap<Integer, List<StorageMessages.Node>>());
+            Map<Integer, List<StorageMessages.Node>> map = mapOfChunkInfo.get(filename);
+            if (!map.containsKey(chunkId))
+                map.put(chunkId, new ArrayList<StorageMessages.Node>(list));
+            else
+                map.put(chunkId, list);
+        }
     }
 
     private List<StorageMessages.Node> getStorageNodeList(StorageMessages.StoreFileMeta fileMeta){
@@ -63,13 +68,14 @@ public class ControllerWorker extends Worker{
         if (list != null)
             return list;
         list = getStorageNodes();
-        updateMapOfChunkInfo(list);
+        //updateMapOfChunkInfo(list);
         return list;
     }
 
     private List<StorageMessages.Node> getStorageNodes(){
         List<StorageMessages.Node> list = new ArrayList<>();
         synchronized (listOfStorageNode){
+            System.out.println("ControllerWorker: the number of storage node " + listOfStorageNode.size());
             if (listOfStorageNode.size() <= 3){
                 for (StorageNodeInfo node : listOfStorageNode){
                     StorageMessages.Node sNode = StorageMessages.Node.newBuilder()
@@ -89,7 +95,7 @@ public class ControllerWorker extends Worker{
                 while(index[2] == index[0] || index[2] == index[1])
                     index[2] = r.nextInt(size);
                 for (i = 0; i < 3; i++){
-                    StorageNodeInfo node = listOfStorageNode.get(i);
+                    StorageNodeInfo node = listOfStorageNode.get(index[i]);
                     StorageMessages.Node sNode = StorageMessages.Node.newBuilder()
                             .setHostname(node.hostName)
                             .setPort(node.port)
@@ -101,39 +107,77 @@ public class ControllerWorker extends Worker{
         return list;
     }
 
-    private void getHeartBeatMsg(StorageMessages.StorageMessageWrapper msgWrapper){
-        StorageMessages.HeartBeat message = msgWrapper.getHeartBeatMsg();
-        String nodeName = message.getHostName();
-        int port = message.getPort();
-        List<StorageMessages.Chunk> list = message.getUpdateInfoList();
-        System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
-        synchronized (listOfStorageNode){
-            long timeStamp = System.currentTimeMillis() / 1000;
-            boolean exist = false;
-            for (StorageNodeInfo node : listOfStorageNode){
-                if (node.hostName.equals(nodeName) && node.port == port){
+    private void getStorageNodeMeta(String nodeName, int port){
+        StorageMessages.GetAllData message = StorageMessages.GetAllData.newBuilder().setTest(0).build();
+        StorageMessages.StorageMessageWrapper msgWrapper = StorageMessages.StorageMessageWrapper.newBuilder()
+                .setGetAllDataMsg(message).build();
+        try{
+            Socket client = new Socket(nodeName, port);
+            msgWrapper.writeDelimitedTo(client.getOutputStream());
+            StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.
+                    StorageMessageWrapper.parseDelimitedFrom(client.getInputStream());
+            if (resWrapper.hasGetAllDataResponseMsg()){
+                StorageMessages.GetAllDataResponse response = msgWrapper.getGetAllDataResponseMsg();
+                String host = response.getHostName();
+                int newPort = response.getPort();
+                List<StorageMessages.Chunk> list = response.getUpdateInfoList();
+                if (list.size() != 0){
+                    updateMapOfChunkInfo(list, host, newPort);
+                    updateDetailOfStorageNode(list, host, newPort);
+                }
+            }
+            client.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateDetailOfStorageNode(List<StorageMessages.Chunk> list, String nodeName, int port){
+        String key = nodeName + port;
+        synchronized (detailOfStorageNode){
+            if (!detailOfStorageNode.containsKey(key))
+                detailOfStorageNode.put(key, new HashMap<>());
+            Map<String, List<Integer>> map = detailOfStorageNode.get(key);
+            for (StorageMessages.Chunk chunk : list){
+                String filename = chunk.getFilename();
+                int chunkId = chunk.getChunkId();
+                if (!map.containsKey(filename))
+                    map.put(filename, new LinkedList<>());
+                map.get(filename).add(chunkId);
+            }
+        }
+    }
+
+    private void updateListOfStorageNode(String nodeName, int port){
+        long timeStamp = System.currentTimeMillis() / 1000;
+        boolean exist = false;
+        synchronized (listOfStorageNode) {
+            for (StorageNodeInfo node : listOfStorageNode) {
+                if (node.hostName.equals(nodeName) && node.port == port) {
                     exist = true;
                     node.timeStamp = timeStamp;
                 } else if (timeStamp - node.timeStamp > 10)
                     listOfStorageNode.remove(node);
             }
-            if (!exist)
+            if (!exist){
                 listOfStorageNode.add(new StorageNodeInfo(nodeName, port, timeStamp));
+                getStorageNodeMeta(nodeName, port);
+            }
         }
-        if (list.size() != 0){
-            for (StorageMessages.Chunk chunk : list){
+    }
+
+    private void updateMapOfChunkInfo(List<StorageMessages.Chunk> list, String nodeName, int port){
+        synchronized (mapOfChunkInfo) {
+            for (StorageMessages.Chunk chunk : list) {
                 String filename = chunk.getFilename();
                 int chunkId = chunk.getChunkId();
-                if (!mapOfChunkInfo.containsKey(filename)){
-                    System.out.println(Thread.currentThread().getId() +
-                            "ControllerWorker: Controller should have save this file info to map " + filename);
-                    return;
+                if (!mapOfChunkInfo.containsKey(filename)) {
+                    mapOfChunkInfo.put(filename, new HashMap<Integer, List<StorageMessages.Node>>());
                 }
                 Map<Integer, List<StorageMessages.Node>> map = mapOfChunkInfo.get(filename);
-                if (!map.containsKey(chunkId)){
-                    System.out.println(Thread.currentThread().getId() +
-                            "ControllerWorker: Controller should have save this chunk info to map " + chunkId);
-                    return;
+                if (!map.containsKey(chunkId)) {
+                    map.put(chunkId, new LinkedList<StorageMessages.Node>());
                 }
                 StorageMessages.Node node = StorageMessages.Node.newBuilder()
                         .setHostname(nodeName)
@@ -141,6 +185,19 @@ public class ControllerWorker extends Worker{
                         .build();
                 map.get(chunkId).add(node);
             }
+        }
+    }
+
+    private void getHeartBeatMsg(StorageMessages.StorageMessageWrapper msgWrapper){
+        StorageMessages.HeartBeat message = msgWrapper.getHeartBeatMsg();
+        String nodeName = message.getHostName();
+        int port = message.getPort();
+        List<StorageMessages.Chunk> list = message.getUpdateInfoList();
+        System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
+        updateListOfStorageNode(nodeName, port);
+        if (list.size() != 0){
+            updateMapOfChunkInfo(list, nodeName, port);
+            updateDetailOfStorageNode(list, nodeName, port);
         }
     }
 
