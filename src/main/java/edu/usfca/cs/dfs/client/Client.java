@@ -153,13 +153,13 @@ public class Client {
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
         }*/
-        //StoreFile test = new StoreFile();
-        //test.storeFile("test.zip");
+       // StoreFile test = new StoreFile();
+       // test.storeFile("test.zip");
         //System.out.println("Client: going to retrieve file");
         //Thread.sleep(5000);
         RetrieveFile retrieve = new RetrieveFile("test.zip");
         retrieve.retrieveFile("test.zip");
-        System.out.println("Client: done");
+        //System.out.println("Client: done");
     }
 
 }

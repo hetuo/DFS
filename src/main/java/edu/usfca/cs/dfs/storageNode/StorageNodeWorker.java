@@ -16,6 +16,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -172,14 +173,14 @@ public class StorageNodeWorker extends Worker{
     }
 
 
-    public List<StorageMessages.Chunk> getAllData(){
-        List<StorageMessages.Chunk> list = new LinkedList<>();
+    public void getAllData(List<StorageMessages.Chunk> list){
         File f = new File(StorageNode.DATA_PATH);
-        if (!f.exists())
-            return list;
+        if (!f.exists()){
+            System.out.println("StorageNodeWorker: " + StorageNode.DATA_PATH + " doesn't exist");
+            return;
+        }
         LoadInfoFromDisk loader = new LoadInfoFromDisk(list);
         loader.loadInfo(Paths.get(StorageNode.DATA_PATH));
-        return list;
     }
 
     @Override
@@ -198,11 +199,17 @@ public class StorageNodeWorker extends Worker{
                 }
             }
             if (msgWrapper.hasGetAllDataMsg()){
-                List<StorageMessages.Chunk> list = getAllData();
+                System.out.println("StorageNodeWorker: received get all data request");
+                List<StorageMessages.Chunk> list = new ArrayList<>();
+                getAllData(list);
+                System.out.println("StorageNodeWorker: this size of data is: " + list.size()+this.hostName+this.port);
                 StorageMessages.GetAllDataResponse response = StorageMessages.GetAllDataResponse.newBuilder()
                         .setHostName(this.hostName).setPort(this.port).addAllUpdateInfo(list).build();
+
                 StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.StorageMessageWrapper
                         .newBuilder().setGetAllDataResponseMsg(response).build();
+                System.out.println("StorageNodeWorker: going to send data back");
+
                 resWrapper.writeDelimitedTo(socket.getOutputStream());
 
             }

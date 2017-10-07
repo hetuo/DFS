@@ -112,16 +112,21 @@ public class ControllerWorker extends Worker{
         StorageMessages.StorageMessageWrapper msgWrapper = StorageMessages.StorageMessageWrapper.newBuilder()
                 .setGetAllDataMsg(message).build();
         try{
+            System.out.println("ControllerWorker: try to get the metadata of this storage node");
             Socket client = new Socket(nodeName, port);
             msgWrapper.writeDelimitedTo(client.getOutputStream());
+            //Thread.sleep(1000);
             StorageMessages.StorageMessageWrapper resWrapper = StorageMessages.
                     StorageMessageWrapper.parseDelimitedFrom(client.getInputStream());
             if (resWrapper.hasGetAllDataResponseMsg()){
-                StorageMessages.GetAllDataResponse response = msgWrapper.getGetAllDataResponseMsg();
+                StorageMessages.GetAllDataResponse response = resWrapper.getGetAllDataResponseMsg();
+                //System.out.println(response.toString());
                 String host = response.getHostName();
                 int newPort = response.getPort();
                 List<StorageMessages.Chunk> list = response.getUpdateInfoList();
+                System.out.println("ControllerWorker: get all the chunks info + " + host + newPort+ list.size());
                 if (list.size() != 0){
+                    System.out.println("ControllerWorker: already got the metadata of this storage node and it has chunks");
                     updateMapOfChunkInfo(list, host, newPort);
                     updateDetailOfStorageNode(list, host, newPort);
                 }
@@ -136,6 +141,7 @@ public class ControllerWorker extends Worker{
     private void updateDetailOfStorageNode(List<StorageMessages.Chunk> list, String nodeName, int port){
         String key = nodeName + port;
         synchronized (detailOfStorageNode){
+            System.out.println("ControllerWorker: trying to update DetailOfStorageNode");
             if (!detailOfStorageNode.containsKey(key))
                 detailOfStorageNode.put(key, new HashMap<>());
             Map<String, List<Integer>> map = detailOfStorageNode.get(key);
@@ -153,15 +159,19 @@ public class ControllerWorker extends Worker{
         long timeStamp = System.currentTimeMillis() / 1000;
         boolean exist = false;
         synchronized (listOfStorageNode) {
+            List<StorageNodeInfo> diedNode = new ArrayList<>();
             for (StorageNodeInfo node : listOfStorageNode) {
                 if (node.hostName.equals(nodeName) && node.port == port) {
                     exist = true;
                     node.timeStamp = timeStamp;
                 } else if (timeStamp - node.timeStamp > 10)
-                    listOfStorageNode.remove(node);
+                    diedNode.add(node);
             }
+            for (StorageNodeInfo node : diedNode)
+                listOfStorageNode.remove(node);
             if (!exist){
                 listOfStorageNode.add(new StorageNodeInfo(nodeName, port, timeStamp));
+                System.out.println("ControllerWorker: a new storage node added!");
                 getStorageNodeMeta(nodeName, port);
             }
         }
@@ -169,6 +179,7 @@ public class ControllerWorker extends Worker{
 
     private void updateMapOfChunkInfo(List<StorageMessages.Chunk> list, String nodeName, int port){
         synchronized (mapOfChunkInfo) {
+            System.out.println("ControllerWorker: trying to update MapOfChunkInfo");
             for (StorageMessages.Chunk chunk : list) {
                 String filename = chunk.getFilename();
                 int chunkId = chunk.getChunkId();

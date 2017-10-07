@@ -28,6 +28,7 @@ public class LoadInfoFromDisk {
     }
 
     public void loadInfo(Path path){
+        System.out.println("LoadInfoFromDisk: going to read data from disk");
         queue.execute(new ReadInfo(path));
         shutdown();
     }
