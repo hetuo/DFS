@@ -148,17 +148,17 @@ public class Client {
         if (args[1].equals("store"))
             client.storeFile(args[2], socket);
         else if (args[1].equals("retrieve"))
-            client.retrieveFile(args[2], socket);
+            client.retrieveFile(args[2], socket);java.lang.OutOfMemoryError: unable to create new native thread
         else{
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
         }*/
-       // StoreFile test = new StoreFile();
-       // test.storeFile("test.zip");
+        StoreFile test = new StoreFile();
+        test.storeFile("test.zip");
         //System.out.println("Client: going to retrieve file");
         //Thread.sleep(5000);
-        RetrieveFile retrieve = new RetrieveFile("test.zip");
-        retrieve.retrieveFile("test.zip");
+        //RetrieveFile retrieve = new RetrieveFile("test.zip");
+        //retrieve.retrieveFile("test.zip");
         //System.out.println("Client: done");
     }
 

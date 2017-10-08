@@ -18,7 +18,7 @@ public class RetrieveFile {
     private Socket clientForController;     //Communicate with Controller by this socket
     private String filename;                //The file's name for processing
     private LinkedList<StorageMessages.RetrieveNode> storageNodeList = null;  //A list of storage nodes for storing chunks
-    private WorkQueue workQueue = new WorkQueue(10);        //Work queue for sending chunks
+    private WorkQueue workQueue = new WorkQueue(20);        //Work queue for sending chunks
     private volatile int numTasks = 0;                              //Shutdown work queue if this variable equals 0
     private ReentrantReadWriteLock lock;                //For synchronous reading chunk list
     private PriorityQueue<StorageMessages.RetrieveChunkResponse> chunkList;
@@ -93,7 +93,7 @@ public class RetrieveFile {
         try {
             chunkList.add(response);
             System.out.println("RetrieveFile: added chunk " + response.getChunkId());
-            if (chunkList.peek().getChunkId() == nextChunkId) {
+            while (!chunkList.isEmpty() && chunkList.peek().getChunkId() == nextChunkId){
                 StorageMessages.RetrieveChunkResponse chunk = chunkList.poll();
                 byte[] data = chunk.getData().toByteArray();
                 System.out.println("RetrieveFile: going to write chunk " + chunk.getChunkId());

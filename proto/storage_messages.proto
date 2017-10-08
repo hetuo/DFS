@@ -92,6 +92,12 @@ message GetAllDataResponse {
     repeated Chunk updateInfo = 3;
 }
 
+message MakeReplicant {
+    string filename = 1;
+    int32 chunkId = 2;
+    Node targetNode = 3;
+}
+
 message StorageMessageWrapper {
     oneof msg {
         StoreChunk storeChunkMsg = 1;
@@ -108,5 +114,6 @@ message StorageMessageWrapper {
         RecoveryChunk recoveryChunkMsg = 12;
         GetAllData getAllDataMsg = 13;
         GetAllDataResponse getAllDataResponseMsg = 14;
+        MakeReplicant makeReplicantMsg = 15;
     }
 }

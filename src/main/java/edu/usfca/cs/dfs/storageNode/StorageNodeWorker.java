@@ -59,6 +59,14 @@ public class StorageNodeWorker extends Worker{
         this.chunkId = message.getChunkInfo().getChunkId();
     }
 
+    private void getMakeReplicantMsg(StorageMessages.StorageMessageWrapper msgWrapper){
+        StorageMessages.MakeReplicant message = msgWrapper.getMakeReplicantMsg();
+        this.filename = message.getFilename();
+        this.chunkId = message.getChunkId();
+        this.nodeList = new LinkedList<>();
+        nodeList.add(message.getTargetNode());
+    }
+
     public void getRecoveryChunkMsg(StorageMessages.StorageMessageWrapper msgWrapper){
         StorageMessages.RecoveryChunk message = msgWrapper.getRecoveryChunkMsg();
         this.filename = message.getFilename();
@@ -172,6 +180,16 @@ public class StorageNodeWorker extends Worker{
         return response;
     }
 
+    /*private StorageMessages.StoreChunk makeReplicant(){
+        StorageMessages.StoreChunk message = null;
+        byte[] data = readAndCheckChunk();
+        if (data != null)
+            message = StorageMessages.StoreChunk.newBuilder().setChunkId(chunkId).setFileName(filename)
+                    .setData(ByteString.copyFrom(data)).setMd5(md5)
+                    .setList(StorageMessages.NodeList.newBuilder().addAllList(new LinkedList<StorageMessages.Node>()))
+                    .build();
+        return message;
+    }*/
 
     public void getAllData(List<StorageMessages.Chunk> list){
         File f = new File(StorageNode.DATA_PATH);
@@ -197,6 +215,17 @@ public class StorageNodeWorker extends Worker{
                     System.out.println("StorageNodeWorker: going to send data to another node");
                     sendChunkToAnotherNode();
                 }
+            }
+            if (msgWrapper.hasMakeReplicantMsg()){
+                getMakeReplicantMsg(msgWrapper);
+                readAndCheckChunk();
+                sendChunkToAnotherNode();
+                //StorageMessages.StoreChunk message = makeReplicant();
+                /*if (message != null){
+                    StorageMessages.StorageMessageWrapper wrapper = StorageMessages.StorageMessageWrapper
+                            .newBuilder().setStoreChunkMsg(message).build();
+                    wrapper.writeDelimitedTo(socket.getOutputStream());
+                }*/
             }
             if (msgWrapper.hasGetAllDataMsg()){
                 System.out.println("StorageNodeWorker: received get all data request");
