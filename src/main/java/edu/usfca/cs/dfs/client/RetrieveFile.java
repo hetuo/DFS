@@ -40,7 +40,7 @@ public class RetrieveFile {
 
     public void getStorageNodes(String filename){
         try{
-            this.clientForController = new Socket("localhost", 8000);
+            this.clientForController = new Socket("bass01.cs.usfca.edu", 21000);
             StorageMessages.RetrieveFileMeta fileMeta = StorageMessages.RetrieveFileMeta.newBuilder()
                     .setFileName(filename)
                     .build();

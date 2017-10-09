@@ -7,8 +7,8 @@ import java.util.*;
 
 public class Controller {
 
-    public final static int PORT = 8000;
-    public final static String HOSTNAME = "localhost";
+    public final static int PORT = 21000;
+    public final static String HOSTNAME = "bass01.cs.usfca.edu";
     public Map<String, Map<Integer, List<StorageMessages.Node>>> mapOfChunkInfo;
     public List<StorageNodeInfo> listOfStorageNode;
     public Map<String, Map<String, List<Integer>>> detailOfStorageNode;

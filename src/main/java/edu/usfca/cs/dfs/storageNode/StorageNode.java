@@ -19,8 +19,8 @@ public class StorageNode {
 
     private int port;
     private String hostName;
-    private String nameNodeAddr = "localhost";
-    private int nameNodePort = 8000;
+    private String nameNodeAddr = "bass01.cs.usfca.edu";
+    private int nameNodePort = 21000;
     private Map<String, Map<Integer, Chunk>> chunkMap;
     public static String DATA_PATH;
     private List<StorageMessages.Chunk> recentChanges;
@@ -31,7 +31,7 @@ public class StorageNode {
         recentChanges = new ArrayList<>();
         this.port = port;
         this.hostName = hostName;
-        DATA_PATH = "./data" + port + "/";
+        DATA_PATH = "/home2/the8/data" + port + "/";
     }
 
     public void clearDisk(){

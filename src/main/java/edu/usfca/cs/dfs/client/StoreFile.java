@@ -24,7 +24,7 @@ public class StoreFile {
     private List<StorageMessages.Node> getAvailableStorageNode(String filename, int index){
         List<StorageMessages.Node> nodeList = new LinkedList<>();
         try{
-            this.clientForController = new Socket("localhost", 8000);
+            this.clientForController = new Socket("bass01.cs.usfca.edu", 21000);
             StorageMessages.StoreFileMeta fileMeta =
                     StorageMessages.StoreFileMeta.newBuilder()
                             .setFileName(filename)
