@@ -8,7 +8,6 @@ import edu.usfca.cs.dfs.utilities.Worker;
 
 import java.net.Socket;
 import java.nio.channels.SocketChannel;
-import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -146,13 +145,13 @@ public class ControllerWorker extends Worker{
         synchronized (detailOfStorageNode){
             System.out.println("ControllerWorker: trying to update DetailOfStorageNode");
             if (!detailOfStorageNode.containsKey(key))
-                detailOfStorageNode.put(key, new HashMap<>());
+                detailOfStorageNode.put(key, new HashMap<String, List<Integer>>());
             Map<String, List<Integer>> map = detailOfStorageNode.get(key);
             for (StorageMessages.Chunk chunk : list){
                 String filename = chunk.getFilename();
                 int chunkId = chunk.getChunkId();
                 if (!map.containsKey(filename))
-                    map.put(filename, new LinkedList<>());
+                    map.put(filename, new LinkedList<Integer>());
                 map.get(filename).add(chunkId);
             }
         }

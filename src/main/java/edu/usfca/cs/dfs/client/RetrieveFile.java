@@ -29,7 +29,7 @@ public class RetrieveFile {
     public RetrieveFile(String filename){
         this.filename = filename;
         lock = new ReentrantReadWriteLock();
-        chunkList = new PriorityQueue<>(new Comparator<StorageMessages.RetrieveChunkResponse>() {
+        chunkList = new PriorityQueue<StorageMessages.RetrieveChunkResponse>(100, new Comparator<StorageMessages.RetrieveChunkResponse>() {
             @Override
             public int compare(StorageMessages.RetrieveChunkResponse r1,
                                StorageMessages.RetrieveChunkResponse r2) {
