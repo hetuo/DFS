@@ -1,5 +1,2467 @@
-#
-# There is insufficient memory for the Java Runtime Environment to continue.
-# Cannot create GC thread. Out of system resources.
-# An error report file with more information is saved as:
-# /home4/the8/hs_err_pid14277.log
+2017-10-09 21:35:05
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.51-b03 mixed mode):
+
+"Attach Listener" daemon prio=10 tid=0x00007ffb68002800 nid=0x3461 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-301" prio=10 tid=0x00007ffb0c257000 nid=0x3460 in Object.wait() [0x00007ffafabaa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-300" prio=10 tid=0x00007ffb0c255000 nid=0x345f in Object.wait() [0x00007ffafacab000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-299" prio=10 tid=0x00007ffb0c252800 nid=0x345e in Object.wait() [0x00007ffafadac000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-298" prio=10 tid=0x00007ffb0c250800 nid=0x345d in Object.wait() [0x00007ffafaead000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-297" prio=10 tid=0x00007ffb0c24e800 nid=0x345c in Object.wait() [0x00007ffafafae000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-296" prio=10 tid=0x00007ffb0c24c800 nid=0x345b in Object.wait() [0x00007ffafb0af000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-295" prio=10 tid=0x00007ffb0c24a000 nid=0x345a in Object.wait() [0x00007ffafb1b0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-294" prio=10 tid=0x00007ffb0c248000 nid=0x3459 in Object.wait() [0x00007ffafb2b1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-293" prio=10 tid=0x00007ffb0c246000 nid=0x3458 in Object.wait() [0x00007ffafb3b2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-292" prio=10 tid=0x00007ffb0c244000 nid=0x3457 in Object.wait() [0x00007ffafb4b3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7645c8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7645c8> (a java.util.LinkedList)
+
+"Thread-291" prio=10 tid=0x00007ffb0c241800 nid=0x33ef in Object.wait() [0x00007ffafb5b4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-290" prio=10 tid=0x00007ffb0c23f800 nid=0x33ee in Object.wait() [0x00007ffafb6b5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-289" prio=10 tid=0x00007ffb0c23d800 nid=0x33ed in Object.wait() [0x00007ffafb7b6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-288" prio=10 tid=0x00007ffb0c23b800 nid=0x33ec in Object.wait() [0x00007ffafb8b7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-287" prio=10 tid=0x00007ffb0c239000 nid=0x33eb in Object.wait() [0x00007ffafb9b8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-286" prio=10 tid=0x00007ffb0c237000 nid=0x33ea in Object.wait() [0x00007ffafbab9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-285" prio=10 tid=0x00007ffb0c235000 nid=0x33e9 in Object.wait() [0x00007ffafbbba000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-284" prio=10 tid=0x00007ffb0c233000 nid=0x33e8 in Object.wait() [0x00007ffafbcbb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-283" prio=10 tid=0x00007ffb0c230800 nid=0x33e7 in Object.wait() [0x00007ffafbdbc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-282" prio=10 tid=0x00007ffb0c22e800 nid=0x33e6 in Object.wait() [0x00007ffafbebd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad763588> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad763588> (a java.util.LinkedList)
+
+"Thread-281" prio=10 tid=0x00007ffb0c22c800 nid=0x33e5 in Object.wait() [0x00007ffafbfbe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-280" prio=10 tid=0x00007ffb0c22a800 nid=0x33e4 in Object.wait() [0x00007ffafc0bf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-279" prio=10 tid=0x00007ffb0c228000 nid=0x33e3 in Object.wait() [0x00007ffafc1c0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-278" prio=10 tid=0x00007ffb0c226000 nid=0x33e2 in Object.wait() [0x00007ffafc2c1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-277" prio=10 tid=0x00007ffb0c224000 nid=0x33e1 in Object.wait() [0x00007ffafc3c2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-276" prio=10 tid=0x00007ffb0c221800 nid=0x33e0 in Object.wait() [0x00007ffafc4c3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-275" prio=10 tid=0x00007ffb0c21f800 nid=0x33df in Object.wait() [0x00007ffafc5c4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-274" prio=10 tid=0x00007ffb0c21d800 nid=0x33de in Object.wait() [0x00007ffafc6c5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-273" prio=10 tid=0x00007ffb0c21b000 nid=0x33dd in Object.wait() [0x00007ffafc7c6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-272" prio=10 tid=0x00007ffb0c219000 nid=0x33dc in Object.wait() [0x00007ffafc8c7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad762548> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad762548> (a java.util.LinkedList)
+
+"Thread-271" prio=10 tid=0x00007ffb0c217000 nid=0x33db in Object.wait() [0x00007ffafc9c8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-270" prio=10 tid=0x00007ffb0c215000 nid=0x33da in Object.wait() [0x00007ffafcac9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-269" prio=10 tid=0x00007ffb0c212800 nid=0x33d9 in Object.wait() [0x00007ffafcbca000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-268" prio=10 tid=0x00007ffb0c210800 nid=0x33d8 in Object.wait() [0x00007ffafcccb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-267" prio=10 tid=0x00007ffb0c20e800 nid=0x33d7 in Object.wait() [0x00007ffafcdcc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-266" prio=10 tid=0x00007ffb0c20c800 nid=0x33d6 in Object.wait() [0x00007ffafcecd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-265" prio=10 tid=0x00007ffb0c20a000 nid=0x33d5 in Object.wait() [0x00007ffafcfce000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-264" prio=10 tid=0x00007ffb0c208000 nid=0x33d4 in Object.wait() [0x00007ffafd0cf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-263" prio=10 tid=0x00007ffb0c206000 nid=0x33d3 in Object.wait() [0x00007ffafd1d0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-262" prio=10 tid=0x00007ffb0c204000 nid=0x33d2 in Object.wait() [0x00007ffafd2d1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad761508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad761508> (a java.util.LinkedList)
+
+"Thread-261" prio=10 tid=0x00007ffb0c201800 nid=0x33d1 in Object.wait() [0x00007ffafd3d2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-260" prio=10 tid=0x00007ffb0c1ff800 nid=0x33d0 in Object.wait() [0x00007ffafd4d3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-259" prio=10 tid=0x00007ffb0c1fd800 nid=0x33cf in Object.wait() [0x00007ffafd5d4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-258" prio=10 tid=0x00007ffb0c1fb800 nid=0x33ce in Object.wait() [0x00007ffafd6d5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-257" prio=10 tid=0x00007ffb0c1f9000 nid=0x33cd in Object.wait() [0x00007ffafd7d6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-256" prio=10 tid=0x00007ffb0c1f7000 nid=0x33cc in Object.wait() [0x00007ffafd8d7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-255" prio=10 tid=0x00007ffb0c1f5000 nid=0x33cb in Object.wait() [0x00007ffafd9d8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-254" prio=10 tid=0x00007ffb0c1f3000 nid=0x33ca in Object.wait() [0x00007ffafdad9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-253" prio=10 tid=0x00007ffb0c1f0800 nid=0x33c9 in Object.wait() [0x00007ffafdbda000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-252" prio=10 tid=0x00007ffb0c1ee800 nid=0x33c8 in Object.wait() [0x00007ffafdcdb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75fcb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75fcb8> (a java.util.LinkedList)
+
+"Thread-251" prio=10 tid=0x00007ffb0c1ec800 nid=0x33c7 in Object.wait() [0x00007ffafdddc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-250" prio=10 tid=0x00007ffb0c1ea800 nid=0x33c6 in Object.wait() [0x00007ffafdedd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-249" prio=10 tid=0x00007ffb0c1e8000 nid=0x33c5 in Object.wait() [0x00007ffafdfde000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-248" prio=10 tid=0x00007ffb0c1e6000 nid=0x33c4 in Object.wait() [0x00007ffafe0df000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-247" prio=10 tid=0x00007ffb0c1e4000 nid=0x33c3 in Object.wait() [0x00007ffafe1e0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-246" prio=10 tid=0x00007ffb0c1e1800 nid=0x33c2 in Object.wait() [0x00007ffafe2e1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-245" prio=10 tid=0x00007ffb0c1df800 nid=0x33c1 in Object.wait() [0x00007ffafe3e2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-244" prio=10 tid=0x00007ffb0c1dd800 nid=0x33c0 in Object.wait() [0x00007ffafe4e3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-243" prio=10 tid=0x00007ffb0c1db000 nid=0x33bf in Object.wait() [0x00007ffafe5e4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-242" prio=10 tid=0x00007ffb0c1d9000 nid=0x33be in Object.wait() [0x00007ffafe6e5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ec78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ec78> (a java.util.LinkedList)
+
+"Thread-241" prio=10 tid=0x00007ffb0c1d7000 nid=0x33bd in Object.wait() [0x00007ffafe7e6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-240" prio=10 tid=0x00007ffb0c1d5000 nid=0x33bc in Object.wait() [0x00007ffafe8e7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-239" prio=10 tid=0x00007ffb0c1d2800 nid=0x33bb in Object.wait() [0x00007ffafe9e8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-238" prio=10 tid=0x00007ffb0c1d0800 nid=0x33ba in Object.wait() [0x00007ffafeae9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-237" prio=10 tid=0x00007ffb0c1ce800 nid=0x33b9 in Object.wait() [0x00007ffafebea000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-236" prio=10 tid=0x00007ffb0c1cc800 nid=0x33b8 in Object.wait() [0x00007ffafeceb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-235" prio=10 tid=0x00007ffb0c1ca000 nid=0x33b7 in Object.wait() [0x00007ffafedec000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-234" prio=10 tid=0x00007ffb0c1c8000 nid=0x33b6 in Object.wait() [0x00007ffafeeed000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-233" prio=10 tid=0x00007ffb0c1c6000 nid=0x33b5 in Object.wait() [0x00007ffafefee000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-232" prio=10 tid=0x00007ffb0c1c4000 nid=0x33b4 in Object.wait() [0x00007ffaff0ef000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75dc38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75dc38> (a java.util.LinkedList)
+
+"Thread-231" prio=10 tid=0x00007ffb0c1c1800 nid=0x33b2 in Object.wait() [0x00007ffaff1f0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-230" prio=10 tid=0x00007ffb0c1bf800 nid=0x33b1 in Object.wait() [0x00007ffaff2f1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-229" prio=10 tid=0x00007ffb0c1bd800 nid=0x33b0 in Object.wait() [0x00007ffaff3f2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-228" prio=10 tid=0x00007ffb0c1bb800 nid=0x33af in Object.wait() [0x00007ffaff4f3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-227" prio=10 tid=0x00007ffb0c1b9000 nid=0x33ae in Object.wait() [0x00007ffaff5f4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-226" prio=10 tid=0x00007ffb0c1b7000 nid=0x33ad in Object.wait() [0x00007ffaff6f5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-225" prio=10 tid=0x00007ffb0c1b5000 nid=0x33ac in Object.wait() [0x00007ffaff7f6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-224" prio=10 tid=0x00007ffb0c1b2800 nid=0x33ab in Object.wait() [0x00007ffaff8f7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-223" prio=10 tid=0x00007ffb0c1b0800 nid=0x33aa in Object.wait() [0x00007ffaff9f8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-222" prio=10 tid=0x00007ffb0c1ae800 nid=0x33a9 in Object.wait() [0x00007ffaffaf9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75cbf8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75cbf8> (a java.util.LinkedList)
+
+"Thread-221" prio=10 tid=0x00007ffb0c1ac800 nid=0x33a8 in Object.wait() [0x00007ffaffbfa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-220" prio=10 tid=0x00007ffb0c1aa000 nid=0x33a7 in Object.wait() [0x00007ffaffcfb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-219" prio=10 tid=0x00007ffb0c1a8000 nid=0x33a6 in Object.wait() [0x00007ffaffdfc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-218" prio=10 tid=0x00007ffb0c1a6000 nid=0x33a5 in Object.wait() [0x00007ffaffefd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-217" prio=10 tid=0x00007ffb0c1a4000 nid=0x33a4 in Object.wait() [0x00007ffaffffe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-216" prio=10 tid=0x00007ffb0c1a1800 nid=0x33a3 in Object.wait() [0x00007ffb041c0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-215" prio=10 tid=0x00007ffb0c19f800 nid=0x33a2 in Object.wait() [0x00007ffb042c1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-214" prio=10 tid=0x00007ffb0c19d800 nid=0x33a1 in Object.wait() [0x00007ffb043c2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-213" prio=10 tid=0x00007ffb0c19b800 nid=0x33a0 in Object.wait() [0x00007ffb044c3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-212" prio=10 tid=0x00007ffb0c199000 nid=0x339f in Object.wait() [0x00007ffb045c4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75bbb8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75bbb8> (a java.util.LinkedList)
+
+"Thread-211" prio=10 tid=0x00007ffb0c197000 nid=0x339e in Object.wait() [0x00007ffb046c5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-210" prio=10 tid=0x00007ffb0c195000 nid=0x339d in Object.wait() [0x00007ffb047c6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-209" prio=10 tid=0x00007ffb0c193000 nid=0x339c in Object.wait() [0x00007ffb048c7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-208" prio=10 tid=0x00007ffb0c190800 nid=0x339b in Object.wait() [0x00007ffb049c8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-207" prio=10 tid=0x00007ffb0c18e800 nid=0x339a in Object.wait() [0x00007ffb04ac9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-206" prio=10 tid=0x00007ffb0c18c800 nid=0x3399 in Object.wait() [0x00007ffb04bca000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-205" prio=10 tid=0x00007ffb0c18a800 nid=0x3398 in Object.wait() [0x00007ffb04ccb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-204" prio=10 tid=0x00007ffb0c188000 nid=0x3397 in Object.wait() [0x00007ffb04dcc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-203" prio=10 tid=0x00007ffb0c186000 nid=0x3396 in Object.wait() [0x00007ffb04ecd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-202" prio=10 tid=0x00007ffb0c184000 nid=0x3395 in Object.wait() [0x00007ffb04fce000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad75ab78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad75ab78> (a java.util.LinkedList)
+
+"Thread-201" prio=10 tid=0x00007ffb0c182000 nid=0x3393 in Object.wait() [0x00007ffb050cf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-200" prio=10 tid=0x00007ffb0c17f800 nid=0x3392 in Object.wait() [0x00007ffb051d0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-199" prio=10 tid=0x00007ffb0c17d800 nid=0x3391 in Object.wait() [0x00007ffb052d1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-198" prio=10 tid=0x00007ffb0c17b800 nid=0x3390 in Object.wait() [0x00007ffb053d2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-197" prio=10 tid=0x00007ffb0c179800 nid=0x338f in Object.wait() [0x00007ffb054d3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-196" prio=10 tid=0x00007ffb0c177000 nid=0x338e in Object.wait() [0x00007ffb055d4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-195" prio=10 tid=0x00007ffb0c175000 nid=0x338d in Object.wait() [0x00007ffb056d5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-194" prio=10 tid=0x00007ffb0c173000 nid=0x338c in Object.wait() [0x00007ffb057d6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-193" prio=10 tid=0x00007ffb0c170800 nid=0x338b in Object.wait() [0x00007ffb058d7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-192" prio=10 tid=0x00007ffb0c16e800 nid=0x338a in Object.wait() [0x00007ffb059d8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad759b38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad759b38> (a java.util.LinkedList)
+
+"Thread-191" prio=10 tid=0x00007ffb0c16c800 nid=0x3388 in Object.wait() [0x00007ffb05ad9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-190" prio=10 tid=0x00007ffb0c16a800 nid=0x3387 in Object.wait() [0x00007ffb05bda000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-189" prio=10 tid=0x00007ffb0c168000 nid=0x3386 in Object.wait() [0x00007ffb05cdb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-188" prio=10 tid=0x00007ffb0c166000 nid=0x3385 in Object.wait() [0x00007ffb05ddc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-187" prio=10 tid=0x00007ffb0c164000 nid=0x3384 in Object.wait() [0x00007ffb05edd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-186" prio=10 tid=0x00007ffb0c162000 nid=0x3383 in Object.wait() [0x00007ffb05fde000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-185" prio=10 tid=0x00007ffb0c15f800 nid=0x3382 in Object.wait() [0x00007ffb060df000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-184" prio=10 tid=0x00007ffb0c15d800 nid=0x3381 in Object.wait() [0x00007ffb061e0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-183" prio=10 tid=0x00007ffb0c15b800 nid=0x3380 in Object.wait() [0x00007ffb062e1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-182" prio=10 tid=0x00007ffb0c159800 nid=0x337f in Object.wait() [0x00007ffb063e2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad758af8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad758af8> (a java.util.LinkedList)
+
+"Thread-181" prio=10 tid=0x00007ffb0c157000 nid=0x337e in Object.wait() [0x00007ffb064e3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-180" prio=10 tid=0x00007ffb0c155000 nid=0x337d in Object.wait() [0x00007ffb065e4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-179" prio=10 tid=0x00007ffb0c153000 nid=0x337c in Object.wait() [0x00007ffb066e5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-178" prio=10 tid=0x00007ffb0c150800 nid=0x337b in Object.wait() [0x00007ffb067e6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-177" prio=10 tid=0x00007ffb0c14e800 nid=0x337a in Object.wait() [0x00007ffb068e7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-176" prio=10 tid=0x00007ffb0c14c800 nid=0x3379 in Object.wait() [0x00007ffb069e8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-175" prio=10 tid=0x00007ffb0c14a800 nid=0x3378 in Object.wait() [0x00007ffb06ae9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-174" prio=10 tid=0x00007ffb0c148000 nid=0x3377 in Object.wait() [0x00007ffb06bea000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-173" prio=10 tid=0x00007ffb0c146000 nid=0x3376 in Object.wait() [0x00007ffb06ceb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-172" prio=10 tid=0x00007ffb0c144000 nid=0x3375 in Object.wait() [0x00007ffb06dec000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad757ab8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad757ab8> (a java.util.LinkedList)
+
+"Thread-171" prio=10 tid=0x00007ffb0c142000 nid=0x3372 in Object.wait() [0x00007ffb06eed000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-170" prio=10 tid=0x00007ffb0c13f800 nid=0x3371 in Object.wait() [0x00007ffb06fee000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-169" prio=10 tid=0x00007ffb0c13d800 nid=0x3370 in Object.wait() [0x00007ffb070ef000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-168" prio=10 tid=0x00007ffb0c13b800 nid=0x336f in Object.wait() [0x00007ffb071f0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-167" prio=10 tid=0x00007ffb0c139000 nid=0x336e in Object.wait() [0x00007ffb072f1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-166" prio=10 tid=0x00007ffb0c137000 nid=0x336d in Object.wait() [0x00007ffb073f2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-165" prio=10 tid=0x00007ffb0c135000 nid=0x336c in Object.wait() [0x00007ffb074f3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-164" prio=10 tid=0x00007ffb0c133000 nid=0x336b in Object.wait() [0x00007ffb075f4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-163" prio=10 tid=0x00007ffb0c130800 nid=0x336a in Object.wait() [0x00007ffb076f5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-162" prio=10 tid=0x00007ffb0c12e800 nid=0x3369 in Object.wait() [0x00007ffb077f6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad756a78> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad756a78> (a java.util.LinkedList)
+
+"Thread-161" prio=10 tid=0x00007ffb0c12c800 nid=0x3368 in Object.wait() [0x00007ffb078f7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-160" prio=10 tid=0x00007ffb0c12a800 nid=0x3367 in Object.wait() [0x00007ffb079f8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-159" prio=10 tid=0x00007ffb0c128000 nid=0x3366 in Object.wait() [0x00007ffb07af9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-158" prio=10 tid=0x00007ffb0c126000 nid=0x3365 in Object.wait() [0x00007ffb07bfa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-157" prio=10 tid=0x00007ffb0c124000 nid=0x3364 in Object.wait() [0x00007ffb07cfb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-156" prio=10 tid=0x00007ffb0c122000 nid=0x3363 in Object.wait() [0x00007ffb07dfc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-155" prio=10 tid=0x00007ffb0c11f800 nid=0x3362 in Object.wait() [0x00007ffb07efd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-154" prio=10 tid=0x00007ffb0c11d800 nid=0x3361 in Object.wait() [0x00007ffb07ffe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-153" prio=10 tid=0x00007ffb0c11b800 nid=0x3360 in Object.wait() [0x00007ffb5c149000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-152" prio=10 tid=0x00007ffb0c119800 nid=0x335f in Object.wait() [0x00007ffb5c24a000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad755a38> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad755a38> (a java.util.LinkedList)
+
+"Thread-151" prio=10 tid=0x00007ffb0c117000 nid=0x3350 in Object.wait() [0x00007ffb5c34b000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-150" prio=10 tid=0x00007ffb0c115000 nid=0x334f in Object.wait() [0x00007ffb5c44c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-149" prio=10 tid=0x00007ffb0c113000 nid=0x334e in Object.wait() [0x00007ffb5c54d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-148" prio=10 tid=0x00007ffb0c110800 nid=0x334d in Object.wait() [0x00007ffb5c64e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-147" prio=10 tid=0x00007ffb0c10e800 nid=0x334c in Object.wait() [0x00007ffb5c74f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-146" prio=10 tid=0x00007ffb0c10c800 nid=0x334b in Object.wait() [0x00007ffb5c850000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-145" prio=10 tid=0x00007ffb0c10a000 nid=0x334a in Object.wait() [0x00007ffb5c951000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-144" prio=10 tid=0x00007ffb0c108000 nid=0x3349 in Object.wait() [0x00007ffb5ca52000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-143" prio=10 tid=0x00007ffb0c106000 nid=0x3348 in Object.wait() [0x00007ffb5cb53000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-142" prio=10 tid=0x00007ffb0c104000 nid=0x3347 in Object.wait() [0x00007ffb5cc54000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7549f8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7549f8> (a java.util.LinkedList)
+
+"Thread-141" prio=10 tid=0x00007ffb0c101800 nid=0x3336 in Object.wait() [0x00007ffb5cd55000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-140" prio=10 tid=0x00007ffb0c0ff800 nid=0x3335 in Object.wait() [0x00007ffb5ce56000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-139" prio=10 tid=0x00007ffb0c0fd800 nid=0x3334 in Object.wait() [0x00007ffb5cf57000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-138" prio=10 tid=0x00007ffb0c0fb800 nid=0x3333 in Object.wait() [0x00007ffb5d058000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-137" prio=10 tid=0x00007ffb0c0f9000 nid=0x3332 in Object.wait() [0x00007ffb5d159000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-136" prio=10 tid=0x00007ffb0c0f7000 nid=0x3331 in Object.wait() [0x00007ffb5d25a000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-135" prio=10 tid=0x00007ffb0c0f5000 nid=0x3330 in Object.wait() [0x00007ffb5d35b000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-134" prio=10 tid=0x00007ffb0c0f3000 nid=0x332f in Object.wait() [0x00007ffb5d45c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-133" prio=10 tid=0x00007ffb0c0f0800 nid=0x332e in Object.wait() [0x00007ffb5d55d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-132" prio=10 tid=0x00007ffb0c0ee800 nid=0x332d in Object.wait() [0x00007ffb5d65e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7539b8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7539b8> (a java.util.LinkedList)
+
+"Thread-131" prio=10 tid=0x00007ffb0c0ec800 nid=0x332c in Object.wait() [0x00007ffb5d75f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-130" prio=10 tid=0x00007ffb0c0ea800 nid=0x332b in Object.wait() [0x00007ffb5d860000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-129" prio=10 tid=0x00007ffb0c0e8000 nid=0x332a in Object.wait() [0x00007ffb5d961000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-128" prio=10 tid=0x00007ffb0c0e6000 nid=0x3329 in Object.wait() [0x00007ffb5da62000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-127" prio=10 tid=0x00007ffb0c0e4000 nid=0x3328 in Object.wait() [0x00007ffb5db63000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-126" prio=10 tid=0x00007ffb0c0e2000 nid=0x3327 in Object.wait() [0x00007ffb5dc64000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-125" prio=10 tid=0x00007ffb0c0df800 nid=0x3326 in Object.wait() [0x00007ffb5dd65000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-124" prio=10 tid=0x00007ffb0c0dd800 nid=0x3325 in Object.wait() [0x00007ffb5de66000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-123" prio=10 tid=0x00007ffb0c0db800 nid=0x3324 in Object.wait() [0x00007ffb5df67000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-122" prio=10 tid=0x00007ffb0c0d9800 nid=0x3323 in Object.wait() [0x00007ffb5e068000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad752568> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad752568> (a java.util.LinkedList)
+
+"Thread-121" prio=10 tid=0x00007ffb0c0d7000 nid=0x3322 in Object.wait() [0x00007ffb5e169000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-120" prio=10 tid=0x00007ffb0c0d5000 nid=0x3321 in Object.wait() [0x00007ffb7017e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-119" prio=10 tid=0x00007ffb0c0d3000 nid=0x3320 in Object.wait() [0x00007ffb841c0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-118" prio=10 tid=0x00007ffb0c0d0800 nid=0x331f in Object.wait() [0x00007ffb842c1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-117" prio=10 tid=0x00007ffb0c0ce800 nid=0x331e in Object.wait() [0x00007ffb843c2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-116" prio=10 tid=0x00007ffb0c0cc800 nid=0x331d in Object.wait() [0x00007ffb844c3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-115" prio=10 tid=0x00007ffb0c0ca000 nid=0x331c in Object.wait() [0x00007ffb845c4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-114" prio=10 tid=0x00007ffb0c0c8000 nid=0x331b in Object.wait() [0x00007ffb846c5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-113" prio=10 tid=0x00007ffb0c0c6000 nid=0x331a in Object.wait() [0x00007ffb847c6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-112" prio=10 tid=0x00007ffb0c0c4000 nid=0x3319 in Object.wait() [0x00007ffb848c7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad751528> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad751528> (a java.util.LinkedList)
+
+"Thread-111" prio=10 tid=0x00007ffb0c0c1800 nid=0x3318 in Object.wait() [0x00007ffb849c8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-110" prio=10 tid=0x00007ffb0c0bf800 nid=0x3317 in Object.wait() [0x00007ffb84ac9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-109" prio=10 tid=0x00007ffb0c0bd800 nid=0x3316 in Object.wait() [0x00007ffb84bca000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-108" prio=10 tid=0x00007ffb0c0bb800 nid=0x3315 in Object.wait() [0x00007ffb84ccb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-107" prio=10 tid=0x00007ffb0c0b9000 nid=0x3314 in Object.wait() [0x00007ffb84dcc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-106" prio=10 tid=0x00007ffb0c0b7000 nid=0x3313 in Object.wait() [0x00007ffb84ecd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-105" prio=10 tid=0x00007ffb0c0b5000 nid=0x3312 in Object.wait() [0x00007ffb84fce000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-104" prio=10 tid=0x00007ffb0c0b3000 nid=0x3311 in Object.wait() [0x00007ffb850cf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-103" prio=10 tid=0x00007ffb0c0b0800 nid=0x3310 in Object.wait() [0x00007ffb851d0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-102" prio=10 tid=0x00007ffb0c0ae800 nid=0x330f in Object.wait() [0x00007ffb852d1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad7504e8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad7504e8> (a java.util.LinkedList)
+
+"Thread-101" prio=10 tid=0x00007ffb0c0ac800 nid=0x330e in Object.wait() [0x00007ffb853d2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-100" prio=10 tid=0x00007ffb0c0aa800 nid=0x330d in Object.wait() [0x00007ffb854d3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-99" prio=10 tid=0x00007ffb0c0a8000 nid=0x330c in Object.wait() [0x00007ffb855d4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-98" prio=10 tid=0x00007ffb0c0a6000 nid=0x330b in Object.wait() [0x00007ffb856d5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-97" prio=10 tid=0x00007ffb0c0a4000 nid=0x330a in Object.wait() [0x00007ffb857d6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-96" prio=10 tid=0x00007ffb0c0a2000 nid=0x3309 in Object.wait() [0x00007ffb858d7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-95" prio=10 tid=0x00007ffb0c09f800 nid=0x3308 in Object.wait() [0x00007ffb859d8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-94" prio=10 tid=0x00007ffb0c09d800 nid=0x3307 in Object.wait() [0x00007ffb85ad9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-93" prio=10 tid=0x00007ffb0c09b800 nid=0x3306 in Object.wait() [0x00007ffb85bda000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-92" prio=10 tid=0x00007ffb0c099800 nid=0x3305 in Object.wait() [0x00007ffb85cdb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74f4a8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74f4a8> (a java.util.LinkedList)
+
+"Thread-91" prio=10 tid=0x00007ffb0c097000 nid=0x3304 in Object.wait() [0x00007ffb85ddc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-90" prio=10 tid=0x00007ffb0c095000 nid=0x3303 in Object.wait() [0x00007ffb85edd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-89" prio=10 tid=0x00007ffb0c093000 nid=0x3302 in Object.wait() [0x00007ffb85fde000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-88" prio=10 tid=0x00007ffb0c090800 nid=0x3301 in Object.wait() [0x00007ffb860df000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-87" prio=10 tid=0x00007ffb0c08e800 nid=0x3300 in Object.wait() [0x00007ffb861e0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-86" prio=10 tid=0x00007ffb0c08c000 nid=0x32ff in Object.wait() [0x00007ffb862e1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-85" prio=10 tid=0x00007ffb0c08a000 nid=0x32fe in Object.wait() [0x00007ffb863e2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-84" prio=10 tid=0x00007ffb0c088000 nid=0x32fd in Object.wait() [0x00007ffb864e3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-83" prio=10 tid=0x00007ffb0c086000 nid=0x32fc in Object.wait() [0x00007ffb865e4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-82" prio=10 tid=0x00007ffb0c083800 nid=0x32fb in Object.wait() [0x00007ffb866e5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74e468> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74e468> (a java.util.LinkedList)
+
+"Thread-81" prio=10 tid=0x00007ffb0c081800 nid=0x32fa in Object.wait() [0x00007ffb867e6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-80" prio=10 tid=0x00007ffb0c07f800 nid=0x32f9 in Object.wait() [0x00007ffb868e7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-79" prio=10 tid=0x00007ffb0c07d800 nid=0x32f8 in Object.wait() [0x00007ffb869e8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-78" prio=10 tid=0x00007ffb0c07b000 nid=0x32f7 in Object.wait() [0x00007ffb86ae9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-77" prio=10 tid=0x00007ffb0c079000 nid=0x32f6 in Object.wait() [0x00007ffb86bea000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-76" prio=10 tid=0x00007ffb0c077000 nid=0x32f5 in Object.wait() [0x00007ffb86ceb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-75" prio=10 tid=0x00007ffb0c075000 nid=0x32f4 in Object.wait() [0x00007ffb86dec000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-74" prio=10 tid=0x00007ffb0c072800 nid=0x32f3 in Object.wait() [0x00007ffb86eed000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-73" prio=10 tid=0x00007ffb0c070800 nid=0x32f2 in Object.wait() [0x00007ffb86fee000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-72" prio=10 tid=0x00007ffb0c06e800 nid=0x32f1 in Object.wait() [0x00007ffb870ef000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74d428> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74d428> (a java.util.LinkedList)
+
+"Thread-71" prio=10 tid=0x00007ffb0c06c800 nid=0x32ef in Object.wait() [0x00007ffb871f0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-70" prio=10 tid=0x00007ffb0c06a000 nid=0x32ee in Object.wait() [0x00007ffb872f1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-69" prio=10 tid=0x00007ffb0c068000 nid=0x32ed in Object.wait() [0x00007ffb873f2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-68" prio=10 tid=0x00007ffb0c066000 nid=0x32ec in Object.wait() [0x00007ffb874f3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-67" prio=10 tid=0x00007ffb0c064000 nid=0x32eb in Object.wait() [0x00007ffb875f4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-66" prio=10 tid=0x00007ffb0c061800 nid=0x32ea in Object.wait() [0x00007ffb876f5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-65" prio=10 tid=0x00007ffb0c05f800 nid=0x32e9 in Object.wait() [0x00007ffb877f6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-64" prio=10 tid=0x00007ffb0c05d800 nid=0x32e8 in Object.wait() [0x00007ffb878f7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-63" prio=10 tid=0x00007ffb0c05b800 nid=0x32e7 in Object.wait() [0x00007ffb879f8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-62" prio=10 tid=0x00007ffb0c059000 nid=0x32e6 in Object.wait() [0x00007ffb87af9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74c1d8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74c1d8> (a java.util.LinkedList)
+
+"Thread-61" prio=10 tid=0x00007ffb0c057000 nid=0x32e5 in Object.wait() [0x00007ffb87bfa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-60" prio=10 tid=0x00007ffb0c055000 nid=0x32e4 in Object.wait() [0x00007ffb87cfb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-59" prio=10 tid=0x00007ffb0c053000 nid=0x32e3 in Object.wait() [0x00007ffb87dfc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-58" prio=10 tid=0x00007ffb0c050800 nid=0x32e2 in Object.wait() [0x00007ffb87efd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-57" prio=10 tid=0x00007ffb0c04e800 nid=0x32e1 in Object.wait() [0x00007ffb87ffe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-56" prio=10 tid=0x00007ffb0c04c800 nid=0x32e0 in Object.wait() [0x00007ffb8c1a7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-55" prio=10 tid=0x00007ffb0c04a000 nid=0x32df in Object.wait() [0x00007ffb8c2a8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-54" prio=10 tid=0x00007ffb0c048000 nid=0x32de in Object.wait() [0x00007ffb8c3a9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-53" prio=10 tid=0x00007ffb0c046000 nid=0x32dd in Object.wait() [0x00007ffb8c4aa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-52" prio=10 tid=0x00007ffb0c043800 nid=0x32dc in Object.wait() [0x00007ffb8c5ab000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74b198> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74b198> (a java.util.LinkedList)
+
+"Thread-51" prio=10 tid=0x00007ffb0c041800 nid=0x32db in Object.wait() [0x00007ffb8c6ac000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-50" prio=10 tid=0x00007ffb0c03f800 nid=0x32da in Object.wait() [0x00007ffb8c7ad000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-49" prio=10 tid=0x00007ffb0c03d800 nid=0x32d9 in Object.wait() [0x00007ffb8c8ae000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-48" prio=10 tid=0x00007ffb0c03b000 nid=0x32d8 in Object.wait() [0x00007ffb8c9af000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-47" prio=10 tid=0x00007ffb0c039000 nid=0x32d7 in Object.wait() [0x00007ffb8cab0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-46" prio=10 tid=0x00007ffb0c037000 nid=0x32d6 in Object.wait() [0x00007ffb8cbb1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-45" prio=10 tid=0x00007ffb0c035000 nid=0x32d5 in Object.wait() [0x00007ffb8ccb2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-44" prio=10 tid=0x00007ffb0c032800 nid=0x32d4 in Object.wait() [0x00007ffb8cdb3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-43" prio=10 tid=0x00007ffb0c030800 nid=0x32d3 in Object.wait() [0x00007ffb8ceb4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-42" prio=10 tid=0x00007ffb0c02e800 nid=0x32d2 in Object.wait() [0x00007ffb8cfb5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad74a158> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad74a158> (a java.util.LinkedList)
+
+"Thread-41" prio=10 tid=0x00007ffb0c02c800 nid=0x32d0 in Object.wait() [0x00007ffb8d0b6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-40" prio=10 tid=0x00007ffb0c02a000 nid=0x32cf in Object.wait() [0x00007ffb8d1b7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-39" prio=10 tid=0x00007ffb0c028000 nid=0x32ce in Object.wait() [0x00007ffb8d2b8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-38" prio=10 tid=0x00007ffb0c026000 nid=0x32cd in Object.wait() [0x00007ffb8d3b9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-37" prio=10 tid=0x00007ffb0c024000 nid=0x32cc in Object.wait() [0x00007ffb8d4ba000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-36" prio=10 tid=0x00007ffb0c022000 nid=0x32cb in Object.wait() [0x00007ffb8d5bb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-35" prio=10 tid=0x00007ffb0c020800 nid=0x32ca in Object.wait() [0x00007ffb8d6bc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-34" prio=10 tid=0x00007ffb0c01f000 nid=0x32c9 in Object.wait() [0x00007ffb8d7bd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-33" prio=10 tid=0x00007ffb0c01d000 nid=0x32c8 in Object.wait() [0x00007ffb8d8be000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-32" prio=10 tid=0x00007ffb0c01b800 nid=0x32c7 in Object.wait() [0x00007ffb8d9bf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad749008> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad749008> (a java.util.LinkedList)
+
+"Thread-30" prio=10 tid=0x00007ffb0c019800 nid=0x32c6 in Object.wait() [0x00007ffb8dcc6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-29" prio=10 tid=0x00007ffb0c017800 nid=0x32c5 in Object.wait() [0x00007ffb8ddc7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-28" prio=10 tid=0x00007ffb0c015000 nid=0x32c4 in Object.wait() [0x00007ffb8dec8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-27" prio=10 tid=0x00007ffb0c013000 nid=0x32c3 in Object.wait() [0x00007ffb8dfc9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-26" prio=10 tid=0x00007ffb0c011000 nid=0x32c2 in Object.wait() [0x00007ffb8e0ca000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-25" prio=10 tid=0x00007ffb0c00f000 nid=0x32c1 in Object.wait() [0x00007ffb8e1cb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-24" prio=10 tid=0x00007ffb0c00c800 nid=0x32c0 in Object.wait() [0x00007ffb8e2cc000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-23" prio=10 tid=0x00007ffb0c00a800 nid=0x32bf in Object.wait() [0x00007ffb8e3cd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-22" prio=10 tid=0x00007ffb0c008800 nid=0x32be in Object.wait() [0x00007ffb8e4ce000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-21" prio=10 tid=0x00007ffb0c006800 nid=0x32bd in Object.wait() [0x00007ffb8e5cf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad747f58> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad747f58> (a java.util.LinkedList)
+
+"Thread-20" prio=10 tid=0x00007ffb98123000 nid=0x32bb runnable [0x00007ffb8e8e7000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530)
+	at java.net.ServerSocket.accept(ServerSocket.java:498)
+	at edu.usfca.cs.dfs.network.Server.run(Server.java:41)
+	at java.lang.Thread.run(Thread.java:744)
+
+"Thread-19" prio=10 tid=0x00007ffb98120800 nid=0x32ba in Object.wait() [0x00007ffb8e9e8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-18" prio=10 tid=0x00007ffb9811e800 nid=0x32b9 in Object.wait() [0x00007ffb8eae9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-17" prio=10 tid=0x00007ffb9811c000 nid=0x32b8 in Object.wait() [0x00007ffb8ebea000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-16" prio=10 tid=0x00007ffb9811a000 nid=0x32b7 in Object.wait() [0x00007ffb8eceb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-15" prio=10 tid=0x00007ffb98118000 nid=0x32b6 in Object.wait() [0x00007ffb8edec000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-14" prio=10 tid=0x00007ffb98116000 nid=0x32b5 in Object.wait() [0x00007ffb8eeed000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-13" prio=10 tid=0x00007ffb98113800 nid=0x32b4 in Object.wait() [0x00007ffb8efee000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-12" prio=10 tid=0x00007ffb98111800 nid=0x32b3 in Object.wait() [0x00007ffb8f0ef000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-11" prio=10 tid=0x00007ffb9810f800 nid=0x32b2 in Object.wait() [0x00007ffb8f1f0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-10" prio=10 tid=0x00007ffb9810e000 nid=0x32b1 in Object.wait() [0x00007ffb8f2f1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad69f508> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad69f508> (a java.util.LinkedList)
+
+"Thread-9" prio=10 tid=0x00007ffb9810b000 nid=0x32b0 in Object.wait() [0x00007ffb8f3f2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-8" prio=10 tid=0x00007ffb98109000 nid=0x32af in Object.wait() [0x00007ffb8f4f3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-7" prio=10 tid=0x00007ffb98107000 nid=0x32ae in Object.wait() [0x00007ffb8f5f4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-6" prio=10 tid=0x00007ffb98104800 nid=0x32ad in Object.wait() [0x00007ffb8f6f5000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-5" prio=10 tid=0x00007ffb98102800 nid=0x32ac in Object.wait() [0x00007ffb8f7f6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-4" prio=10 tid=0x00007ffb98100800 nid=0x32ab in Object.wait() [0x00007ffb8f8f7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-3" prio=10 tid=0x00007ffb980fe800 nid=0x32aa in Object.wait() [0x00007ffb8f9f8000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-2" prio=10 tid=0x00007ffb980fc000 nid=0x32a9 in Object.wait() [0x00007ffb8faf9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-1" prio=10 tid=0x00007ffb980fa000 nid=0x32a8 in Object.wait() [0x00007ffb8fbfa000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Thread-0" prio=10 tid=0x00007ffb980ca800 nid=0x32a7 in Object.wait() [0x00007ffb8fcfb000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad697dd8> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at edu.usfca.cs.dfs.concurrent.WorkQueue$PoolWorker.run(WorkQueue.java:82)
+	- locked <0x00000007ad697dd8> (a java.util.LinkedList)
+
+"Service Thread" daemon prio=10 tid=0x00007ffb98096000 nid=0x32a5 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" daemon prio=10 tid=0x00007ffb98093800 nid=0x32a4 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" daemon prio=10 tid=0x00007ffb98090800 nid=0x32a3 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" daemon prio=10 tid=0x00007ffb98086000 nid=0x32a2 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" daemon prio=10 tid=0x00007ffb9806f000 nid=0x32a1 in Object.wait() [0x00007ffb9434d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad605568> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <0x00000007ad605568> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
+
+"Reference Handler" daemon prio=10 tid=0x00007ffb9806b000 nid=0x32a0 in Object.wait() [0x00007ffb9444e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad6050f0> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <0x00000007ad6050f0> (a java.lang.ref.Reference$Lock)
+
+"main" prio=10 tid=0x00007ffb98009000 nid=0x329a in Object.wait() [0x00007ffb9f5fd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007ad6a0d18> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1280)
+	- locked <0x00000007ad6a0d18> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1354)
+	at edu.usfca.cs.dfs.controller.Controller.main(Controller.java:30)
+
+"VM Thread" prio=10 tid=0x00007ffb98068800 nid=0x329f runnable 
+
+"GC task thread#0 (ParallelGC)" prio=10 tid=0x00007ffb9801e800 nid=0x329b runnable 
+
+"GC task thread#1 (ParallelGC)" prio=10 tid=0x00007ffb98020800 nid=0x329c runnable 
+
+"GC task thread#2 (ParallelGC)" prio=10 tid=0x00007ffb98022800 nid=0x329d runnable 
+
+"GC task thread#3 (ParallelGC)" prio=10 tid=0x00007ffb98024800 nid=0x329e runnable 
+
+"VM Periodic Task Thread" prio=10 tid=0x00007ffb980a1000 nid=0x32a6 waiting on condition 
+
+JNI global references: 128
+
