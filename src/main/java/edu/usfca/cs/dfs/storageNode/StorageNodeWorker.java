@@ -76,7 +76,7 @@ public class StorageNodeWorker extends Worker{
 
     public void storeChunk() throws Exception{
         //String path = "./data"+port+"/" + this.filename + "/" + this.md5 + "-" + this.chunkId;
-        String path = DATA_PATH + this.filename + "/" + this.md5 + "-" + this.chunkId;
+        String path = StorageNode.DATA_PATH + this.filename + "/" + this.md5 + "-" + this.chunkId;
         File f = new File(path);
         f.getParentFile().mkdirs();
         f.createNewFile();
@@ -135,7 +135,7 @@ public class StorageNodeWorker extends Worker{
         FileInputStream is = null;
         byte[] data = null;
         try{
-            for (Path path : Files.newDirectoryStream(Paths.get(DATA_PATH + filename))){
+            for (Path path : Files.newDirectoryStream(Paths.get(StorageNode.DATA_PATH + filename))){
                 if (path.toString().endsWith("-" + chunkId)){
                     String[] strings = path.toString().split("/");
                     String md5sum = strings[strings.length - 1].substring(0, 32);
