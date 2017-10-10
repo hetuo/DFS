@@ -323,7 +323,7 @@ public class ControllerWorker extends Worker{
         String nodeName = message.getHostName();
         int port = message.getPort();
         List<StorageMessages.Chunk> list = message.getUpdateInfoList();
-        //System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
+        System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
         updateListOfStorageNode(nodeName, port);
         if (list.size() != 0){
             updateMapOfChunkInfo(list, nodeName, port);
