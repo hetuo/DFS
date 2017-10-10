@@ -25,7 +25,7 @@ public class Server implements Runnable{
         this.hostName = hostName;
         this.port = port;
         this.worker = worker;
-        workQueue = new WorkQueue(10);
+        workQueue = new WorkQueue(20);
     }
 
     public void run(){

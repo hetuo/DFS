@@ -19,7 +19,7 @@ public class ControllerWorker extends Worker{
     public Map<String, Map<String, List<Integer>>> detailOfStorageNode;
     public List<StorageNodeInfo> listOfStorageNode;
     private volatile int numTasks = 0;
-    private WorkQueue workQueue = new WorkQueue();
+    private WorkQueue workQueue;
 
     public ControllerWorker(ControllerWorker worker){
         super(worker.hostName);
@@ -166,6 +166,7 @@ public class ControllerWorker extends Worker{
         }
         if (map != null){
             System.out.println("ControllerWorker: the size of this map is: " + map.size());
+            workQueue = new WorkQueue();
             workQueue.execute(new Copier(map, node));
             shutdown();
         }
