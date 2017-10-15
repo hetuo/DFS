@@ -137,24 +137,27 @@ public class Client {
 
 
     public static void main(String[] args) throws Exception {
-
-        //Client client = new Client();
-//        Socket socket = new Socket("localhost", 9999);
-        Socket socket = null;
-        /*if (args.length != 3 || args[2] == ""){
+        if (args.length != 2 || args[1] == ""){
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
         }
-        if (args[1].equals("store"))
-            client.storeFile(args[2], socket);
-        else if (args[1].equals("retrieve"))
-            client.retrieveFile(args[2], socket);java.lang.OutOfMemoryError: unable to create new native thread
+        if (args[0].equals("store")){
+	    StoreFile test = new StoreFile();
+            test.storeFile(args[1]);
+            System.out.println("Done");
+	}
+        else if (args[0].equals("retrieve")){
+            RetrieveFile retrieve = new RetrieveFile(args[1]);
+            retrieve.retrieveFile(args[1]);
+            System.out.println("Done");
+        }
         else{
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
-        }*/
-        StoreFile test = new StoreFile();
-        test.storeFile("test.zip");
+        }
+	return;
+        //StoreFile test = new StoreFile();
+        //test.storeFile("test.zip");
         //System.out.println("Client: going to retrieve file");
         //Thread.sleep(5000);
         //RetrieveFile retrieve = new RetrieveFile("test.zip");
