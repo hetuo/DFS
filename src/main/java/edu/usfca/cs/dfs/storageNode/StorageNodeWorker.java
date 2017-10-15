@@ -145,7 +145,7 @@ public class StorageNodeWorker extends Worker{
                     System.out.println("StorageNodeWorker: " + DigestUtils.md5Hex(data) + ":" + md5sum);
                     if (!md5sum.equals(DigestUtils.md5Hex(data))){
                         data = null;
-                        //need to delete this broken chunk;
+                        System.out.println("StorageNodeWorker: the chunk in " + this.hostName + " has been broken");
                         Files.delete(path);
                     }else{
                         System.out.println("StorageNodeWorker: get the right file");

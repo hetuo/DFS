@@ -165,7 +165,7 @@ public class ControllerWorker extends Worker{
                 map = new HashMap<>(detailOfStorageNode.remove(node.hostName+node.port));
         }
         if (map != null){
-            System.out.println("ControllerWorker: the size of this map is: " + map.size());
+            //System.out.println("ControllerWorker: the size of this map is: " + map.size());
             workQueue = new WorkQueue();
             workQueue.execute(new Copier(map, node));
             shutdown();
@@ -175,7 +175,6 @@ public class ControllerWorker extends Worker{
     private List<StorageMessages.Node> updateStorageNodeListByNameAndId(String filename, int chunkId, StorageNodeInfo node){
         List<StorageMessages.Node> list = null;
         synchronized (mapOfChunkInfo){
-            System.out.println("ControllerWorker: going to update the StorageNodeList");
             if (mapOfChunkInfo != null && mapOfChunkInfo.containsKey(filename)){
                 Map<Integer, List<StorageMessages.Node>> map = mapOfChunkInfo.get(filename);
                 if (map != null && map.containsKey(chunkId)){
@@ -201,10 +200,9 @@ public class ControllerWorker extends Worker{
         synchronized (listOfStorageNode){
             int size = listOfStorageNode.size();
             Random r = new Random();
-            System.out.println("ControllerWorker: listOfStorageNode:" + size + " sourceNodeList: " + sourceNodeList.size());
             while (listOfStorageNode.size() > sourceNodeList.size()){
                 int i = r.nextInt(size), j = 0;
-                System.out.println("ControllerWorker: try to find a valid node");
+                //System.out.println("ControllerWorker: try to find a valid node");
                 for (; j < sourceNodeList.size(); j++)
                     if (listOfStorageNode.get(i).hostName.equals(sourceNodeList.get(j).getHostname())
                             && (listOfStorageNode.get(i).port == sourceNodeList.get(j).getPort()))
@@ -213,7 +211,7 @@ public class ControllerWorker extends Worker{
                     //targetNode = listOfStorageNode.get(i);
                     targetNode = new StorageNodeInfo(listOfStorageNode.get(i).hostName,
                             listOfStorageNode.get(i).port, 0);
-                    System.out.println("ControllerWorker: already got the target node. Going to make replicant");
+                    //System.out.println("ControllerWorker: already got the target node. Going to make replicant");
                     break;
                 }
             }
@@ -221,6 +219,8 @@ public class ControllerWorker extends Worker{
         }
         if (targetNode != null){
             StorageMessages.Node sourceNode = sourceNodeList.get(0);
+            System.out.println("ControllerWorker: going to make replicant from " + sourceNode.getHostname() + " to "
+                    + targetNode.hostName + " filename: " + filename + " chunkid: " + chunkId);
             StorageMessages.Node node = StorageMessages.Node.newBuilder().setHostname(targetNode.hostName)
                     .setPort(targetNode.port).build();
             StorageMessages.MakeReplicant message = StorageMessages.MakeReplicant.newBuilder()
@@ -262,7 +262,6 @@ public class ControllerWorker extends Worker{
                     workQueue.execute(new Copier(map, node));
                 for (int chunkId : chunks){
                     List<StorageMessages.Node> list = updateStorageNodeListByNameAndId(filename, chunkId, node);
-                    System.out.println("ControllerWorker: before make replicant");
                     makeReplicant(list, filename, chunkId);
                 }
             }
@@ -281,6 +280,7 @@ public class ControllerWorker extends Worker{
                     exist = true;
                     node.timeStamp = timeStamp;
                 } else if (timeStamp - node.timeStamp > 10)
+                    System.out.println("ControllerWorker: " + node.hostName + " has died");
                     diedNode.add(node);
             }
             for (StorageNodeInfo node : diedNode) {
@@ -324,7 +324,7 @@ public class ControllerWorker extends Worker{
         String nodeName = message.getHostName();
         int port = message.getPort();
         List<StorageMessages.Chunk> list = message.getUpdateInfoList();
-        System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
+        //System.out.println(Thread.currentThread().getId() + "ControllerWorker: get heartbeat message: " + nodeName + port);
         updateListOfStorageNode(nodeName, port);
         if (list.size() != 0){
             updateMapOfChunkInfo(list, nodeName, port);
@@ -335,6 +335,7 @@ public class ControllerWorker extends Worker{
     private void recoverChunk(StorageMessages.Node node, List<StorageMessages.Node> failedNodes, int id){
         Socket client = null;
         try{
+            System.out.println("Controller: " + node.getHostname() + "going to recovery these failed nodes");
             StorageMessages.RecoveryChunk message = StorageMessages.RecoveryChunk.newBuilder()
                     .setChunkId(id).setFilename(filename).addAllNodeList(failedNodes).build();
             StorageMessages.StorageMessageWrapper msgWrapper = StorageMessages.StorageMessageWrapper

@@ -52,7 +52,6 @@ public class RetrieveFile {
             msgWrapper.writeDelimitedTo(clientForController.getOutputStream());
             msgWrapper = StorageMessages.StorageMessageWrapper.parseDelimitedFrom(clientForController.getInputStream());
             if (msgWrapper.hasRetrieveFileMetaResponseMsg()){
-                System.out.println("RetrieveFile: already get the storage node list");
                 StorageMessages.RetrieveFileMetaResponse response = msgWrapper.getRetrieveFileMetaResponseMsg();
                 storageNodeList = new LinkedList<StorageMessages.RetrieveNode>(response.getNodesList());
             }
