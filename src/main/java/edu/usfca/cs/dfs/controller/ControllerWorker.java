@@ -279,9 +279,10 @@ public class ControllerWorker extends Worker{
                 if (node.hostName.equals(nodeName) && node.port == port) {
                     exist = true;
                     node.timeStamp = timeStamp;
-                } else if (timeStamp - node.timeStamp > 10)
+                } else if (timeStamp - node.timeStamp > 10){
                     System.out.println("ControllerWorker: " + node.hostName + " has died");
                     diedNode.add(node);
+	        }
             }
             for (StorageNodeInfo node : diedNode) {
                 listOfStorageNode.remove(node);
