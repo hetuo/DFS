@@ -145,24 +145,22 @@ public class Client {
 	    StoreFile test = new StoreFile();
             test.storeFile(args[1]);
             System.out.println("Done");
-	}
+	    }
         else if (args[0].equals("retrieve")){
             RetrieveFile retrieve = new RetrieveFile(args[1]);
             retrieve.retrieveFile(args[1]);
+            System.out.println("Done");
+        }
+        else if (args[0].equals("list")){
+            GetFileList getList = new GetFileList();
+            getList.getFileList();
             System.out.println("Done");
         }
         else{
             System.out.println("Client usage: ./client store(or retrieve) filename");
             return;
         }
-	return;
-        //StoreFile test = new StoreFile();
-        //test.storeFile("test.zip");
-        //System.out.println("Client: going to retrieve file");
-        //Thread.sleep(5000);
-        //RetrieveFile retrieve = new RetrieveFile("test.zip");
-        //retrieve.retrieveFile("test.zip");
-        //System.out.println("Client: done");
+	    return;
     }
 
 }

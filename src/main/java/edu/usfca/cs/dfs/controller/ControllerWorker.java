@@ -37,6 +37,15 @@ public class ControllerWorker extends Worker{
         this.detailOfStorageNode = detailOfStorageNode;
     }
 
+    private List<String> getFileList(){
+        List<String> list = new ArrayList<>();
+        synchronized (mapOfChunkInfo){
+            for (Map.Entry<String, Map<Integer, List<StorageMessages.Node>>> entry : mapOfChunkInfo.entrySet())
+                list.add(entry.getKey());
+        }
+        return list;
+    }
+
     private List<StorageMessages.Node> createOrUpdate(){
         List<StorageMessages.Node> list = null;
         synchronized (mapOfChunkInfo){
@@ -452,6 +461,15 @@ public class ControllerWorker extends Worker{
                         .build();
                 resWrapper.writeDelimitedTo(this.socket.getOutputStream());
                 System.out.println(Thread.currentThread().getId() + " ControllerWorker: send StoreFileMetaMsgResponse");
+            }
+            else if (msgWrapper.hasGetFileListMsg()){
+                List<String> list = getFileList();
+                StorageMessages.GetFileListResponse response = StorageMessages.GetFileListResponse.newBuilder()
+                        .addAllFileList(list).build();
+                StorageMessages.StorageMessageWrapper resWrapper =
+                        StorageMessages.StorageMessageWrapper.newBuilder()
+                        .setGetFileListResponseMsg(response).build();
+                resWrapper.writeDelimitedTo(this.socket.getOutputStream());
             }
             socket.close();
         }catch (Exception e){
