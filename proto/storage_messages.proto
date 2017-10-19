@@ -98,6 +98,14 @@ message MakeReplicant {
     Node targetNode = 3;
 }
 
+message GetFileList {
+    int32 test = 1;
+}
+
+message GetFileListResponse {
+    repeated string fileList = 2;
+}
+
 message StorageMessageWrapper {
     oneof msg {
         StoreChunk storeChunkMsg = 1;
@@ -115,5 +123,7 @@ message StorageMessageWrapper {
         GetAllData getAllDataMsg = 13;
         GetAllDataResponse getAllDataResponseMsg = 14;
         MakeReplicant makeReplicantMsg = 15;
+        GetFileList getFileListMsg = 16;
+        GetFileListResponse getFileListResponseMsg = 17;
     }
 }
